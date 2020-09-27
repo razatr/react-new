@@ -1,0 +1,16 @@
+ul,
+ul > li {
+  list-style: none;
+}
+
+.App {
+  padding: 24px;
+}
+
+li > h2 > *,
+li > h3 > * {
+  line-height: 48px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 24px;
+}
