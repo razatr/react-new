@@ -6,9 +6,9 @@ class Review extends Component {
         const { user, text, rating} = this.props
         return (
             <div>
-                <h4>{user}</h4>
+                <span>{user}</span>
+                <Rate disabled allowHalf defaultValue={rating}/><br/>
                 <span>{text}</span>
-                <Rate disabled allowHalf defaultValue={rating}/>
             </div>
         )
     }

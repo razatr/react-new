@@ -10,7 +10,7 @@ class Restaurant extends PureComponent {
         return <React.Fragment>
             {/*<img src={image} width={64} height={64} alt={name}/>*/}
             <h3>{name}</h3>
-            <Rate disabled allowHalf defaultValue={this.avgRate()}/>
+            <Rate disabled allowHalf defaultValue={this.avgRate()}/><br/>
             <button onClick={this.handleToggleOpenClick}>
                 {isMenuOpen ? 'Close menu' : 'Open menu'}
             </button>
