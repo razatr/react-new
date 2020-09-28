@@ -12,7 +12,7 @@ class RestaurantList extends Component {
             restaurants,
             openItemId,
             toggleOpenItem
-        } = this.props;
+        } = this.props
         return (
             <div>
                 {restaurants.map(restaurant => (

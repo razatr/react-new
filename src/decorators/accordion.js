@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 const accordion = OriginalComponent =>
     class DecoratedComponent extends Component {
         state = {
             openItemId: null
-        };
+        }
 
         render() {
             return (
@@ -13,14 +13,14 @@ const accordion = OriginalComponent =>
                     {...this.state}
                     toggleOpenItem={this.toggleOpenItem}
                 />
-            );
+            )
         }
 
         toggleOpenItem = id => {
             this.setState({
                 openItemId: this.state.openItemId === id ? null : id
-            });
-        };
-    };
+            })
+        }
+    }
 
-export { accordion };
+export { accordion }
