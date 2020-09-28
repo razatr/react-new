@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Button from 'antd/lib/button'
+import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
 
 function Dish(props) {
     const [amount, decrease, increase] = useCounter(0)
@@ -8,8 +10,8 @@ function Dish(props) {
             <span style={{ float: 'right' }}>{props.price}</span>
             <hr/>
             <span>{amount}</span>
-            <button onClick={decrease}>-</button>
-            <button onClick={increase}>+</button>
+            <Button onClick={decrease} type="primary" shape="circle" icon={<MinusOutlined/>}/>
+            <Button onClick={increase} type="primary" shape="circle" icon={<PlusOutlined/>}/>
         </div>
     )
 }

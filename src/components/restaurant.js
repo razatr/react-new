@@ -3,7 +3,7 @@ import RestaurantMenu from './restaurant-menu'
 
 class Restaurant extends PureComponent {
     render() {
-        const { name, image, menu, isMenuOpen } = this.props
+        const { name, menu, isMenuOpen } = this.props
         return <React.Fragment>
             {/*<img src={image} width={64} height={64} alt={name}/>*/}
             <h3>{name}</h3>
@@ -14,7 +14,7 @@ class Restaurant extends PureComponent {
         </React.Fragment>
     }
 
-    handleToggleOpenClick = () => {
+    handleToggleOpenClick = (ev) => {
         this.props.toggleOpenMenu(this.props.id);
     };
 }

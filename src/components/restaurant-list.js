@@ -20,7 +20,6 @@ class RestaurantList extends Component {
                             key={restaurant.id}
                             {...restaurant}
                             isMenuOpen={openItemId === restaurant.id}
-                            toggleOpenMenu={this.toggleOpenRestaurantMenu}
                             toggleOpenMenu={toggleOpenItem}
                         />
                     )
@@ -28,12 +27,6 @@ class RestaurantList extends Component {
             </div>
         )
     }
-
-    toggleOpenRestaurantMenu = id => {
-        this.setState({
-            openRestaurantMenuId: id
-        });
-    };
 }
 
 export default accordion(RestaurantList)

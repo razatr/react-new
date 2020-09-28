@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 const accordion = OriginalComponent =>
     class DecoratedComponent extends Component {
@@ -18,7 +18,7 @@ const accordion = OriginalComponent =>
 
         toggleOpenItem = id => {
             this.setState({
-                openItemId: id
+                openItemId: this.state.openItemId === id ? null : id
             });
         };
     };
