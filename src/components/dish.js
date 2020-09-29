@@ -6,12 +6,21 @@ function Dish(props) {
     const [amount, decrease, increase] = useCounter(0)
     return (
         <div>
-            <span>{props.name}</span>
-            <span style={{ float: 'right' }}>{props.price}</span>
-            <hr/>
-            <span>{amount}</span>
-            <Button onClick={decrease} type="primary" shape="circle" icon={<MinusOutlined/>}/>
-            <Button onClick={increase} type="primary" shape="circle" icon={<PlusOutlined/>}/>
+            <div className="dish-title">
+                <span>{props.name}</span>
+                <span style={{ float: 'right' }}>{props.price}</span>
+            </div>
+            <Button onClick={decrease}
+                    size="small"
+                    type="primary"
+                    shape="circle"
+                    icon={<MinusOutlined/>}/>
+            <span className="amount">{amount}</span>
+            <Button onClick={increase}
+                    size="small"
+                    type="primary"
+                    shape="circle"
+                    icon={<PlusOutlined/>}/>
         </div>
     )
 }

@@ -4,10 +4,10 @@ import { opener } from '../decorators/opener'
 
 class Reviews extends Component {
     render() {
-        const {reviews} = this.props
+        const { reviews } = this.props
         return (
             <React.Fragment>
-                {reviews.map(review =>(
+                {reviews.map(review => (
                     <Review
                         key={review.id}
                         {...review}/>

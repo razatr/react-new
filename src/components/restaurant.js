@@ -1,14 +1,15 @@
 import React, { PureComponent } from 'react'
 import RestaurantMenu from './restaurant-menu'
-import { Rate } from 'antd'
+import { Rate, Typography } from 'antd'
 import Reviews from './reviews'
 
 class Restaurant extends PureComponent {
     render() {
         const { name, menu, isMenuOpen, reviews } = this.props
+        const { Title } = Typography
         return <React.Fragment>
             {/*<img src={image} width={64} height={64} alt={name}/>*/}
-            <h3>{name}</h3>
+            <Title level={3}>{name}</Title>
             <Rate disabled allowHalf defaultValue={this.avgRate()}/><br/>
             <button onClick={this.handleToggleOpenClick}>
                 {isMenuOpen ? 'Close menu' : 'Open menu'}

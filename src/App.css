@@ -1,5 +1,9 @@
 @import "../node_modules/antd/dist/antd.css";
 
+* {
+    font-size: 16px;
+}
+
 .App {
     padding: 24px;
 }
@@ -15,4 +19,17 @@ li > h3 > * {
     display: inline-block;
     vertical-align: middle;
     margin-right: 24px;
+}
+
+.amount {
+    display: inline-block;
+    margin: 0 6px;
+}
+
+.dish-title{
+    width: 400px;
+}
+
+button {
+    margin: 6px 0;
 }
