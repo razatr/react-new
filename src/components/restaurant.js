@@ -14,8 +14,8 @@ class Restaurant extends PureComponent {
             <button onClick={this.handleToggleOpenClick}>
                 {isMenuOpen ? 'Close menu' : 'Open menu'}
             </button>
-            {isMenuOpen ? <RestaurantMenu menu={menu}/> : null}
-            {isMenuOpen ? <Reviews reviews={reviews}/> : null}
+            {isMenuOpen ? <RestaurantMenu menu={menu}/> : null} <br/>
+            <Reviews reviews={reviews}/>
         </React.Fragment>
     }
 

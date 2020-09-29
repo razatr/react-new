@@ -1,22 +1,24 @@
 import React, { useState } from 'react'
 import Button from 'antd/lib/button'
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
+import { connect } from 'react-redux'
+import { increaseCart, decreaseCart } from '../AC'
 
 function Dish(props) {
-    const [amount, decrease, increase] = useCounter(0)
+    const { id, amount, increase, decrease } = props
     return (
         <div>
             <div className="dish-title">
                 <span>{props.name}</span>
                 <span style={{ float: 'right' }}>{props.price}</span>
             </div>
-            <Button onClick={decrease}
+            <Button onClick={() => decrease(id)}
                     size="small"
                     type="primary"
                     shape="circle"
                     icon={<MinusOutlined/>}/>
             <span className="amount">{amount}</span>
-            <Button onClick={increase}
+            <Button onClick={() => increase(id)}
                     size="small"
                     type="primary"
                     shape="circle"
@@ -25,13 +27,12 @@ function Dish(props) {
     )
 }
 
-function useCounter(initialValue) {
-    const [value, setAmount] = useState(initialValue)
-    return [
-        value,
-        () => setAmount(value <= 0 ? 0 : value - 1),
-        () => setAmount(value + 1)
-    ]
-}
-
-export default Dish
+export default connect(
+    (state, ownProps) => ({
+        amount: state.cart[ownProps.id] || 0
+    }),
+    {
+        increase: increaseCart,
+        decrease: decreaseCart
+    }
+)(Dish)
