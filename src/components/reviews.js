@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Review from './review'
+import { opener } from '../decorators/opener'
 
 class Reviews extends Component {
     render() {
@@ -16,4 +17,4 @@ class Reviews extends Component {
     }
 }
 
-export default Reviews
+export default opener(Reviews)

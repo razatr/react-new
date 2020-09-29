@@ -3,7 +3,6 @@ import RestaurantMenu from './restaurant-menu'
 import { Rate } from 'antd'
 import Reviews from './reviews'
 
-
 class Restaurant extends PureComponent {
     render() {
         const { name, menu, isMenuOpen, reviews } = this.props
@@ -19,7 +18,7 @@ class Restaurant extends PureComponent {
         </React.Fragment>
     }
 
-    handleToggleOpenClick = (ev) => {
+    handleToggleOpenClick = () => {
         this.props.toggleOpenMenu(this.props.id)
     }
 
