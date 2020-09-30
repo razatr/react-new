@@ -3,7 +3,7 @@ import Dish from './dish'
 
 function RestaurantMenu(props) {
     return (
-        <div>
+        <div style={{width:'100%'}}>
             {props.menu.map(dish => (
                 <Dish key={dish.id} {...dish} />
             ))}

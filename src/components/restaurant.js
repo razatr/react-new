@@ -2,21 +2,20 @@ import React, { PureComponent } from 'react'
 import RestaurantMenu from './restaurant-menu'
 import { Rate, Typography } from 'antd'
 import Reviews from './reviews'
+import { AccordionDetails, AccordionSummary, Accordion } from '@material-ui/core'
 
 class Restaurant extends PureComponent {
     render() {
         const { name, menu, isMenuOpen, reviews } = this.props
         const { Title } = Typography
-        return <React.Fragment>
+        return <Accordion>
             {/*<img src={image} width={64} height={64} alt={name}/>*/}
-            <Title level={3}>{name}</Title>
-            <Rate disabled allowHalf defaultValue={this.avgRate()}/><br/>
-            <button onClick={this.handleToggleOpenClick}>
-                {isMenuOpen ? 'Close menu' : 'Open menu'}
-            </button>
-            {isMenuOpen ? <RestaurantMenu menu={menu}/> : null} <br/>
-            <Reviews reviews={reviews}/>
-        </React.Fragment>
+            <AccordionSummary>{name}</AccordionSummary>
+            <AccordionDetails style={{flexDirection:'column'}}>
+                <RestaurantMenu menu={menu}/>
+                <Reviews reviews={reviews}/>
+            </AccordionDetails>
+        </Accordion>
     }
 
     handleToggleOpenClick = () => {

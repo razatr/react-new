@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Restaurant from './restaurant'
-import { accordion } from '../decorators/accordion'
 
 class RestaurantList extends Component {
     state = {
@@ -14,8 +13,7 @@ class RestaurantList extends Component {
             toggleOpenItem
         } = this.props
         return (
-            <div>
-                {restaurants.map(restaurant => (
+                restaurants.map(restaurant => (
                         <Restaurant
                             key={restaurant.id}
                             {...restaurant}
@@ -23,10 +21,9 @@ class RestaurantList extends Component {
                             toggleOpenMenu={toggleOpenItem}
                         />
                     )
-                )}
-            </div>
+                )
         )
     }
 }
 
-export default accordion(RestaurantList)
+export default RestaurantList
