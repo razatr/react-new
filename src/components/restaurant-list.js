@@ -1,29 +1,28 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Restaurant from './restaurant'
 
-class RestaurantList extends Component {
-    state = {
-        OpenRestaurantMenuId: null
+function RestaurantList(props) {
+    const [expanded, setExpanded] = React.useState(false)
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false)
     }
 
-    render() {
-        const {
-            restaurants,
-            openItemId,
-            toggleOpenItem
-        } = this.props
-        return (
-                restaurants.map(restaurant => (
-                        <Restaurant
-                            key={restaurant.id}
-                            {...restaurant}
-                            isMenuOpen={openItemId === restaurant.id}
-                            toggleOpenMenu={toggleOpenItem}
-                        />
-                    )
-                )
+    const {
+        restaurants
+    } = props
+
+    return (
+        restaurants.map(restaurant => (
+                <Restaurant
+                    key={restaurant.id}
+                    {...restaurant}
+                    handleChange={handleChange}
+                    expanded={expanded}
+                />
+            )
         )
-    }
+    )
 }
 
 export default RestaurantList
