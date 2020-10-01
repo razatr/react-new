@@ -11,7 +11,7 @@ class Restaurant extends PureComponent {
         return <Accordion>
             <AccordionSummary>
                 <Grid container justify='space-between'>
-                    <Typography>{name}</Typography>
+                    <Typography variant='h6'>{name}</Typography>
                     <Rating name="read-only" value={this.avgRate()} readOnly precision={0.5}/>
                 </Grid>
             </AccordionSummary>

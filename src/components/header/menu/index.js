@@ -14,7 +14,6 @@ import {
     Menu as MenuIcon,
     Search as SearchIcon,
     AccountCircle,
-    Mail as MailIcon,
     MoreVert as MoreIcon,
     ShoppingCartOutlined as ShoppingCartOutlinedIcon
 } from '@material-ui/icons'

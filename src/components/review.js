@@ -7,7 +7,7 @@ class Review extends Component {
         const { user, text, rating} = this.props
         return (
             <div>
-                <Typography>{user}</Typography>
+                <Typography variant='h6'>{user}</Typography>
                 <Rating name="read-only" value={rating} readOnly precision={0.5}/><br/>
                 <Typography>{text}</Typography>
             </div>

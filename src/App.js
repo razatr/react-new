@@ -8,11 +8,11 @@ import Header from './components/header'
 
 function App(props) {
     return (
-        <Container>
+        <React.Fragment>
             <Header/>
             <RestaurantList restaurants={props.restaurants}/>
             <UserForm/>
-        </Container>
+        </React.Fragment>
     )
 }
 
