@@ -1,25 +1,25 @@
 import React, { PureComponent } from 'react'
 import RestaurantMenu from './restaurant-menu'
-import { Rate, Typography } from 'antd'
 import Reviews from './reviews'
-import { AccordionDetails, AccordionSummary, Accordion } from '@material-ui/core'
+import { AccordionDetails, AccordionSummary, Accordion, Typography, Grid } from '@material-ui/core'
+import { Rating } from '@material-ui/lab'
+import { withTheme } from '@material-ui/core/styles'
 
 class Restaurant extends PureComponent {
     render() {
-        const { name, menu, isMenuOpen, reviews } = this.props
-        const { Title } = Typography
+        const { name, menu, reviews } = this.props
         return <Accordion>
-            {/*<img src={image} width={64} height={64} alt={name}/>*/}
-            <AccordionSummary>{name}</AccordionSummary>
-            <AccordionDetails style={{flexDirection:'column'}}>
+            <AccordionSummary>
+                <Grid container justify='space-between'>
+                    <Typography>{name}</Typography>
+                    <Rating name="read-only" value={this.avgRate()} readOnly precision={0.5}/>
+                </Grid>
+            </AccordionSummary>
+            <AccordionDetails style={{ flexDirection: 'column' }}>
                 <RestaurantMenu menu={menu}/>
                 <Reviews reviews={reviews}/>
             </AccordionDetails>
         </Accordion>
-    }
-
-    handleToggleOpenClick = () => {
-        this.props.toggleOpenMenu(this.props.id)
     }
 
     avgRate() {
@@ -29,4 +29,4 @@ class Restaurant extends PureComponent {
     }
 }
 
-export default Restaurant
+export default withTheme(Restaurant)

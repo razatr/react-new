@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from '@material-ui/core'
 
 const opener = OriginalComponent =>
     class DecoratedComponent extends Component {
@@ -14,7 +15,9 @@ const opener = OriginalComponent =>
             const { isOpen } = this.state
             return (
                 <React.Fragment>
-                    <button onClick={this.onClick}>{isOpen ? 'Close reviews' : 'Open reviews'}</button>
+                    <Button onClick={this.onClick}>
+                        {isOpen ? 'Close reviews' : 'Open reviews'}
+                    </Button>
                     {isOpen ? <OriginalComponent {...this.props}/> : null}
                 </React.Fragment>
             )
