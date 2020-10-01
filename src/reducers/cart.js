@@ -13,7 +13,7 @@ export default (cartState = {}, action) => {
                 ...cartState
             }
             if (cartState[id] === 1) {
-                delete cartState[id]
+                delete newCartState[id]
             } else if (cartState[id]) {
                 newCartState[id] = newCartState[id] - 1
             }

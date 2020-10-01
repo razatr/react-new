@@ -1,9 +1,8 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import RestaurantMenu from './restaurant-menu'
 import Reviews from './reviews'
 import { AccordionDetails, AccordionSummary, Accordion, Typography, Grid } from '@material-ui/core'
 import { Rating } from '@material-ui/lab'
-import { withTheme } from '@material-ui/core/styles'
 
 function Restaurant(props) {
     const {
@@ -35,4 +34,4 @@ function Restaurant(props) {
     </Accordion>
 }
 
-export default withTheme(Restaurant)
+export default Restaurant

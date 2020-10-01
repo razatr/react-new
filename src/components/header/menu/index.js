@@ -6,7 +6,6 @@ import {
     IconButton,
     Typography,
     InputBase,
-    Badge,
     MenuItem,
     Menu
 } from '@material-ui/core'
@@ -14,9 +13,9 @@ import {
     Menu as MenuIcon,
     Search as SearchIcon,
     AccountCircle,
-    MoreVert as MoreIcon,
-    ShoppingCartOutlined as ShoppingCartOutlinedIcon
+    MoreVert as MoreIcon
 } from '@material-ui/icons'
+import CartBadge from '../../cart-bage/cart-bage'
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -82,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export default function PrimarySearchAppBar() {
+function HeaderMenu() {
     const classes = useStyles()
     const [anchorEl, setAnchorEl] = React.useState(null)
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null)
@@ -136,11 +135,9 @@ export default function PrimarySearchAppBar() {
         >
             <MenuItem>
                 <IconButton aria-label="11 items in your shopping cart" color="inherit">
-                    <Badge badgeContent={11} color="secondary">
-                        <ShoppingCartOutlinedIcon/>
-                    </Badge>
+                    <CartBadge/>
                 </IconButton>
-                <p>Card Bage</p>
+                <p>Cart Badge</p>
             </MenuItem>
             <MenuItem onClick={handleProfileMenuOpen}>
                 <IconButton
@@ -169,7 +166,7 @@ export default function PrimarySearchAppBar() {
                         <MenuIcon/>
                     </IconButton>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        Material-UI
+                        Rest-Delivery
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
@@ -187,9 +184,7 @@ export default function PrimarySearchAppBar() {
                     <div className={classes.grow}/>
                     <div className={classes.sectionDesktop}>
                         <IconButton aria-label="17 items in your shopping cart" color="inherit">
-                            <Badge badgeContent={17} color="secondary">
-                                <ShoppingCartOutlinedIcon/>
-                            </Badge>
+                            <CartBadge/>
                         </IconButton>
                         <IconButton
                             edge="end"
@@ -220,3 +215,5 @@ export default function PrimarySearchAppBar() {
         </div>
     )
 }
+
+export default HeaderMenu

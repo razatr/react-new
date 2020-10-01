@@ -1,18 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Badge, Button } from 'antd'
-import './cart-badge.css'
 import { connect } from 'react-redux'
+import { ShoppingCartOutlined as ShoppingCartOutlinedIcon } from '@material-ui/icons'
+import { Badge } from '@material-ui/core'
 
 function CartBadge(props) {
     return (
-        <Badge count={props.amount}>
-            <Button
-                icon="shopping-cart"
-                size="large"
-                type="primary"
-                className="cart-button"
-            />
+        <Badge badgeContent={props.amount} color="secondary">
+            <ShoppingCartOutlinedIcon/>
         </Badge>
     )
 }
