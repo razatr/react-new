@@ -1,64 +1,64 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import { TextField, Button, Grid } from '@material-ui/core'
 
-class UserForm extends Component {
-    state = {
+function UserForm(props) {
+
+    const [state, setState] = useState({
         name: '',
         phone: '',
         address: ''
-    }
+    })
 
-    render() {
-        const { name, phone, address } = this.state
-        return (
-            <form>
-                <input
-                    placeholder={'Name'}
-                    value={name}
-                    onChange={this.handleNameChange}
-                />
-                <br/>
-                <input
-                    type="tel"
-                    placeholder={'Phone Number'}
-                    value={phone}
-                    onChange={this.handlePhoneChange}
-                />
-                <br/>
-                <textarea
-                    placeholder={'Address'}
-                    value={address}
-                    onChange={this.handleAddressChange}
-                />
-                <br/>
-                <button type={'submit'} onClick={this.submit}>
-                    Send order
-                </button>
-            </form>
-        )
-    }
+    const { name, phone, address } = state
 
-    handleNameChange = e => {
-        this.setState({
-            name: e.target.value
+    const handleNameChange = ev => {
+        setState({
+            name: ev.target.value,
+            phone,
+            address
         })
     }
 
-    handlePhoneChange = e => {
-        this.setState({
-            phone: e.target.value
+    const handlePhoneChange = e => {
+        setState({
+            name,
+            phone: e.target.value,
+            address
         })
     }
 
-    handleAddressChange = e => {
-        this.setState({
+    const handleAddressChange = e => {
+        setState({
+            name,
+            phone,
             address: e.target.value
         })
     }
 
-    submit = e => {
+    const submit = e => {
         e.preventDefault()
-        console.log(this.state)
+        console.log(state)
     }
+
+    return (
+        <Grid container style={{ flexDirection: 'column', padding: '16px 16px' }}>
+            <TextField id="standard-text"
+                       label="Name"
+                       type="text"
+                       onChange={handleNameChange}/>
+            <TextField id="standard-text"
+                       label="Telephone Number"
+                       type="tel"
+                       onChange={handlePhoneChange}/>
+            <TextField id="standard-text"
+                       label="Address"
+                       type="text"
+                       onChange={handleAddressChange}/>
+            <Button onClick={submit}>
+                Send order
+            </Button>
+        </Grid>
+    )
 }
 
 export default UserForm

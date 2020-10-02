@@ -134,9 +134,7 @@ function HeaderMenu() {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <IconButton aria-label="11 items in your shopping cart" color="inherit">
-                    <CartBadge/>
-                </IconButton>
+                <CartBadge/>
                 <p>Cart Badge</p>
             </MenuItem>
             <MenuItem onClick={handleProfileMenuOpen}>
