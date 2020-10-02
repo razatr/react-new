@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class OrderList extends Component {
-    render() {
-
-    }
+function OrderList(props) {
+    return
 }
 
 export default OrderList

@@ -41,7 +41,7 @@ function UserForm(props) {
     }
 
     return (
-        <Grid container style={{ flexDirection: 'column', padding: '16px 16px' }}>
+        <Grid container style={{ flexDirection: 'column', padding: '16px' }}>
             <TextField id="standard-text"
                        label="Name"
                        type="text"

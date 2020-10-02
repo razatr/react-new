@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { fade, makeStyles } from '@material-ui/core/styles'
 import {
     AppBar,
@@ -83,8 +83,8 @@ const useStyles = makeStyles((theme) => ({
 
 function HeaderMenu() {
     const classes = useStyles()
-    const [anchorEl, setAnchorEl] = React.useState(null)
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null)
+    const [anchorEl, setAnchorEl] = useState(null)
+    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
 
     const isMenuOpen = Boolean(anchorEl)
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
