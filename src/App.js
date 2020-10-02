@@ -4,6 +4,7 @@ import './App.css'
 import RestaurantList from './components/restaurant-list'
 import UserForm from './components/user-form'
 import Header from './components/header'
+import OrderList from './components/order-list'
 
 function App(props) {
     return (
@@ -11,6 +12,7 @@ function App(props) {
             <Header/>
             <RestaurantList restaurants={props.restaurants}/>
             <UserForm/>
+            <OrderList/>
         </React.Fragment>
     )
 }
