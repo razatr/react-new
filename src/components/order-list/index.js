@@ -15,7 +15,7 @@ import { selectAllDishes, selectCurrentCart } from '../../selectors'
 
 function OrderList(props) {
 
-    const { cart : rows, totalPrices } = props
+    const { cart: rows, totalPrices } = props
 
     return (
         <TableContainer component={Paper}>
