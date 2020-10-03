@@ -57,6 +57,7 @@ function OrderList(props) {
                         <TableCell>Name</TableCell>
                         <TableCell align="right">Count</TableCell>
                         <TableCell align="right">Cost</TableCell>
+                        <TableCell/>
                     </TableRow>) : null}
                 </TableHead>
                 <TableBody>
