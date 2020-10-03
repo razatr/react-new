@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { fade, makeStyles } from '@material-ui/core/styles'
 import {
     AppBar,
@@ -181,9 +181,7 @@ function HeaderMenu() {
                     </div>
                     <div className={classes.grow}/>
                     <div className={classes.sectionDesktop}>
-                        <IconButton aria-label="17 items in your shopping cart" color="inherit">
-                            <CartBadge/>
-                        </IconButton>
+                        <CartBadge/>
                         <IconButton
                             edge="end"
                             aria-label="account of current user"

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Restaurant from './restaurant'
 
 function RestaurantList(props) {
-    const [expanded, setExpanded] = React.useState(false)
+    const [expanded, setExpanded] = useState(false)
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false)

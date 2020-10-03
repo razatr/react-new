@@ -53,12 +53,12 @@ function OrderList(props) {
         <TableContainer component={Paper}>
             <Table aria-label="a dense table">
                 <TableHead>
-                    <TableRow>
+                    { rows.length? (<TableRow>
                         <TableCell>Name</TableCell>
                         <TableCell align="right">Count</TableCell>
                         <TableCell align="right">Cost</TableCell>
                         <TableCell align="right">Delete</TableCell>
-                    </TableRow>
+                    </TableRow>) : null}
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
