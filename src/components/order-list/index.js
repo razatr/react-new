@@ -11,49 +11,17 @@ import {
 import { Delete as DeleteIcon } from '@material-ui/icons'
 import { connect } from 'react-redux'
 import { deleteCart } from '../../AC'
-
-function createRows(cart, totalPrices) {
-    let rows = []
-    for (let key in cart) {
-        rows.push({
-            id: key,
-            name: totalPrices[key].name,
-            count: cart[key],
-            cost: totalPrices[key].price * cart[key]
-        })
-    }
-    return rows
-}
-
-function getTotalPrice(restaurants) {
-    let totalDishes = []
-    let res = {}
-    restaurants.map(restaurant => {
-        totalDishes = totalDishes.concat(restaurant.menu)
-        return null
-    })
-    totalDishes.map(dish => {
-        res[dish.id] = ({
-            name: dish.name,
-            price: dish.price,
-            ingredients: dish.ingredients
-        })
-        return null
-    })
-    return res
-}
+import { selectAllDishes, selectCurrentCart } from '../../selectors'
 
 function OrderList(props) {
 
-    const { cart, totalPrices } = props
-
-    const rows = createRows(cart, totalPrices)
+    const { cart : rows, totalPrices } = props
 
     return (
         <TableContainer component={Paper}>
             <Table aria-label="a dense table">
                 <TableHead>
-                    { rows.length? (<TableRow>
+                    {rows.length ? (<TableRow>
                         <TableCell>Name</TableCell>
                         <TableCell align="right">Count</TableCell>
                         <TableCell align="right">Cost</TableCell>
@@ -80,13 +48,13 @@ function OrderList(props) {
                         <TableCell component="th" scope="row">
                             Total
                         </TableCell>
-                        <TableCell align="right" >
+                        <TableCell align="right">
                             {rows.reduce((sum, current) => sum + current.count, 0)}
                         </TableCell>
                         <TableCell align="right">
                             {rows.reduce((sum, current) => sum + current.cost, 0)}
                         </TableCell>
-                    </TableRow>): null}
+                    </TableRow>) : null}
                 </TableBody>
             </Table>
         </TableContainer>
@@ -95,8 +63,8 @@ function OrderList(props) {
 
 export default connect(
     state => ({
-        cart: state.cart,
-        totalPrices: getTotalPrice(state.restaurants)
+        cart: selectCurrentCart(state),
+        totalPrices: selectAllDishes(state)
     }),
     {
         deleteCart
