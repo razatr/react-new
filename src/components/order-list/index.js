@@ -57,18 +57,17 @@ function OrderList(props) {
                         <TableCell>Name</TableCell>
                         <TableCell align="right">Count</TableCell>
                         <TableCell align="right">Cost</TableCell>
-                        <TableCell align="right">Delete</TableCell>
                     </TableRow>) : null}
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
-                        <TableRow key={row.name}>
+                        <TableRow key={row.id}>
                             <TableCell component="th" scope="row">
                                 {row.name}
                             </TableCell>
                             <TableCell align="right">{row.count}</TableCell>
                             <TableCell align="right">{row.cost}</TableCell>
-                            <TableCell align="right" style={{ padding: 0 }}>
+                            <TableCell align="right" padding="none">
                                 <IconButton onClick={() =>
                                     props.deleteCart(row.id)}>
                                     <DeleteIcon/>
@@ -76,6 +75,17 @@ function OrderList(props) {
                             </TableCell>
                         </TableRow>
                     ))}
+                    {rows.length ? (<TableRow>
+                        <TableCell component="th" scope="row">
+                            Total
+                        </TableCell>
+                        <TableCell align="right" >
+                            {rows.reduce((sum, current) => sum + current.count, 0)}
+                        </TableCell>
+                        <TableCell align="right">
+                            {rows.reduce((sum, current) => sum + current.cost, 0)}
+                        </TableCell>
+                    </TableRow>): null}
                 </TableBody>
             </Table>
         </TableContainer>
