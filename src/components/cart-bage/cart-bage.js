@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { AccountCircle, ShoppingCartOutlined as ShoppingCartOutlinedIcon } from '@material-ui/icons'
+import { ShoppingCartOutlined as ShoppingCartOutlinedIcon } from '@material-ui/icons'
 import { Badge, IconButton } from '@material-ui/core'
 
 function CartBadge(props) {

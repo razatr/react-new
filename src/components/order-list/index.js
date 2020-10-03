@@ -6,14 +6,18 @@ import {
     TableRow,
     TableCell,
     TableBody,
-    Paper
+    Paper, IconButton
 } from '@material-ui/core'
+import { Delete as DeleteIcon } from '@material-ui/icons'
 import { connect } from 'react-redux'
+import { deleteCart } from '../../AC'
 
 function createRows(cart, totalPrices) {
     let rows = []
     for (let key in cart) {
-        rows.push({name: totalPrices[key].name,
+        rows.push({
+            id: key,
+            name: totalPrices[key].name,
             count: cart[key],
             cost: totalPrices[key].price * cart[key]
         })
@@ -26,13 +30,15 @@ function getTotalPrice(restaurants) {
     let res = {}
     restaurants.map(restaurant => {
         totalDishes = totalDishes.concat(restaurant.menu)
+        return null
     })
     totalDishes.map(dish => {
         res[dish.id] = ({
-        name: dish.name,
-        price: dish.price,
-        ingredients: dish.ingredients
-    })
+            name: dish.name,
+            price: dish.price,
+            ingredients: dish.ingredients
+        })
+        return null
     })
     return res
 }
@@ -51,6 +57,7 @@ function OrderList(props) {
                         <TableCell>Name</TableCell>
                         <TableCell align="right">Count</TableCell>
                         <TableCell align="right">Cost</TableCell>
+                        <TableCell align="right">Delete</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -61,6 +68,12 @@ function OrderList(props) {
                             </TableCell>
                             <TableCell align="right">{row.count}</TableCell>
                             <TableCell align="right">{row.cost}</TableCell>
+                            <TableCell align="right" style={{ padding: 0 }}>
+                                <IconButton onClick={() =>
+                                    props.deleteCart(row.id)}>
+                                    <DeleteIcon/>
+                                </IconButton>
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
@@ -69,7 +82,12 @@ function OrderList(props) {
     )
 }
 
-export default connect(store => ({
-    cart: store.cart,
-    totalPrices: getTotalPrice(store.restaurants)
-}))(OrderList)
+export default connect(
+    state => ({
+        cart: state.cart,
+        totalPrices: getTotalPrice(state.restaurants)
+    }),
+    {
+        deleteCart
+    }
+)(OrderList)
