@@ -1,13 +1,10 @@
-import React, { Component } from 'react'
-import { withTheme } from '@material-ui/core/styles'
+import React from 'react'
 import HeaderMenu from './menu'
 
-class Header extends Component {
-    render() {
-        return (
-            <HeaderMenu/>
-        )
-    }
+function Header() {
+    return (
+        <HeaderMenu/>
+    )
 }
 
-export default withTheme(Header)
+export default Header

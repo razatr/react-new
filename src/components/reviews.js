@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Review from './review'
 import { opener } from '../decorators/opener'
 
-class Reviews extends Component {
-    render() {
-        const { reviews } = this.props
+function Reviews(props) {
+        const { reviews } = props
         return (
             <React.Fragment>
                 {reviews.map(review => (
@@ -14,7 +13,6 @@ class Reviews extends Component {
                 ))}
             </React.Fragment>
         )
-    }
 }
 
 export default opener(Reviews)

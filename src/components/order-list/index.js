@@ -11,11 +11,11 @@ import {
 import { Delete as DeleteIcon } from '@material-ui/icons'
 import { connect } from 'react-redux'
 import { deleteCart } from '../../AC'
-import { selectAllDishes, selectCurrentCart } from '../../selectors'
+import { selectCurrentCart } from '../../selectors'
 
 function OrderList(props) {
 
-    const { cart: rows, totalPrices } = props
+    const { cart: rows } = props
 
     return (
         <TableContainer component={Paper}>
@@ -63,8 +63,7 @@ function OrderList(props) {
 
 export default connect(
     state => ({
-        cart: selectCurrentCart(state),
-        totalPrices: selectAllDishes(state)
+        cart: selectCurrentCart(state)
     }),
     {
         deleteCart
