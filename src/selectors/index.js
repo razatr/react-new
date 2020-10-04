@@ -2,7 +2,6 @@ import { createSelector } from 'reselect'
 
 export const idSelector = (_, ownProps) => ownProps.id
 export const userIdSelector = (_, ownProps) => {
-    console.log('own props for user id - ', ownProps)
     return ownProps.userId
 }
 export const restaurantsSelector = state => state.restaurants
@@ -22,20 +21,21 @@ export const createDishSelector = () => {
 
 }
 
-export const userSelector = createSelector(
-    usersSelector,
-    userIdSelector,
-    (users, id) => {
-        return users.find(user => user.id === id)
-    }
-)
+export const createUserSelector = () => {
+    return createSelector(
+        usersSelector,
+        userIdSelector,
+        (users, id) => {
+            return users.find(user => user.id === id)
+        }
+    )
+}
 
 export const createReviewSelector = () => {
     return createSelector(
         reviewsSelector,
         idSelector,
         (reviews, id) => {
-            console.log('reviews and id - ', reviews, id)
             return reviews.find(review => review.id === id)
         }
     )

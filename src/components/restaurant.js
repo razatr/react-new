@@ -3,6 +3,8 @@ import RestaurantMenu from './restaurant-menu'
 import Reviews from './reviews'
 import { AccordionDetails, AccordionSummary, Accordion, Typography, Grid } from '@material-ui/core'
 import { Rating } from '@material-ui/lab'
+import { connect } from 'react-redux'
+import { createReviewSelector } from '../selectors'
 
 function Restaurant(props) {
 
@@ -16,8 +18,8 @@ function Restaurant(props) {
     } = props
 
     const avgRate = () => {
-        const { reviews } = props
-        const avg = reviews.reduce((sum, current) => sum + current.rating, 0) / reviews.length
+        const { reviewsRate } = props
+        const avg = reviewsRate.reduce((sum, rate) => sum + rate, 0) / reviewsRate.length
         return Math.round(2 * avg) / 2
     }
 
@@ -35,4 +37,16 @@ function Restaurant(props) {
     </Accordion>
 }
 
-export default Restaurant
+const initMapStateToProps = () => {
+    const reviewSelector = createReviewSelector()
+
+    return (state, ownProps) => {
+        return {
+            reviewsRate: (ownProps.reviews.map(review => {
+                return reviewSelector(state, { id: review }).rating
+            }))
+        }
+    }
+}
+
+export default connect(initMapStateToProps)(Restaurant)

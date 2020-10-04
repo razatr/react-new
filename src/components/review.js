@@ -2,12 +2,10 @@ import React from 'react'
 import { Rating } from '@material-ui/lab'
 import { Typography } from '@material-ui/core'
 import { connect } from 'react-redux'
-import { createReviewSelector } from '../selectors'
+import { createReviewSelector, createUserSelector } from '../selectors'
 
 function Review(props) {
     const { user, rating, text } = props
-
-    console.log('reviews props - ', props)
 
     return (
         <div>
@@ -20,10 +18,17 @@ function Review(props) {
 
 const initMapStateToProps = () => {
     const reviewSelector = createReviewSelector()
+    const userSelector = createUserSelector()
 
-    return (state, ownProps) => ({
-        ...reviewSelector(state, ownProps)
-    })
+    return (state, ownProps) => {
+        const review = reviewSelector(state, ownProps)
+
+        return {
+            ...review,
+            user: userSelector(state, review).name
+        }
+    }
+
 }
 
 export default connect(
