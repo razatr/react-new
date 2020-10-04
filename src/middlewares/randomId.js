@@ -4,4 +4,5 @@ export default store => next => action => {
     if(action.generateId)
         next({...action,
         randomId: uuidv4()})
+    next(action)
 };
