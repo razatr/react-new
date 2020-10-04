@@ -6,10 +6,10 @@ function Reviews(props) {
         const { reviews } = props
         return (
             <React.Fragment>
-                {reviews.map(review => (
+                {reviews.map(reviewId => (
                     <Review
-                        key={review.id}
-                        {...review}/>
+                        key={reviewId}
+                        id={reviewId}/>
                 ))}
             </React.Fragment>
         )

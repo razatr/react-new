@@ -5,6 +5,7 @@ import { AccordionDetails, AccordionSummary, Accordion, Typography, Grid } from 
 import { Rating } from '@material-ui/lab'
 
 function Restaurant(props) {
+
     const {
         name,
         menu,

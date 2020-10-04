@@ -1,9 +1,14 @@
 import React from 'react'
 import { Rating } from '@material-ui/lab'
 import { Typography } from '@material-ui/core'
+import { connect } from 'react-redux'
+import { createReviewSelector } from '../selectors'
 
 function Review(props) {
-    const { user, text, rating } = props
+    const { user, rating, text } = props
+
+    console.log('reviews props - ', props)
+
     return (
         <div>
             <Typography variant='h6'>{user}</Typography>
@@ -13,4 +18,14 @@ function Review(props) {
     )
 }
 
-export default Review
+const initMapStateToProps = () => {
+    const reviewSelector = createReviewSelector()
+
+    return (state, ownProps) => ({
+        ...reviewSelector(state, ownProps)
+    })
+}
+
+export default connect(
+    initMapStateToProps
+)(Review)
