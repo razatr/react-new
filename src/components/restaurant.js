@@ -34,7 +34,7 @@ function Restaurant(props) {
             <AccordionDetails style={{ flexDirection: 'column' }}>
                 <RestaurantMenu menu={menu}/>
                 <Reviews reviews={reviews}/>
-                <AddReviewForm/>
+                <AddReviewForm restaurantId={id}/>
             </AccordionDetails>
         </Accordion>
     )

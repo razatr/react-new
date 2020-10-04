@@ -1,34 +1,55 @@
+import {
+    INCREMENT,
+    DECREMENT,
+    ADD_REVIEW,
+    ADD_TO_CART,
+    DELETE_CART,
+    REMOVE_FROM_CART,
+    SET_CURRENT_USER
+} from '../constants'
+
 export const increase = () => ({
-    type: 'INCREMENT'
+    type: INCREMENT
 })
 
 export const decrease = () => ({
-    type: 'DECREMENT'
+    type: DECREMENT
 })
 
 export const increaseCart = id => ({
-    type: 'ADD_TO_CART',
+    type: ADD_TO_CART,
     payload: {
         id
     }
 })
 
 export const decreaseCart = id => ({
-    type: 'REMOVE_FROM_CART',
+    type: REMOVE_FROM_CART,
     payload: {
         id
     }
 })
 
 export const deleteCart = id => ({
-    type: 'DELETE_CART',
+    type: DELETE_CART,
     payload: {
         id
     }
 })
 
+export const addReview = (userId, text, rating, restaurantId) => ({
+    type: ADD_REVIEW,
+    payload: {
+        userId,
+        text,
+        rating,
+        restaurantId
+    },
+    generateId: true
+})
+
 export const setCurrentUser = id => ({
-    type: 'SET_CURRENT_USER',
+    type: SET_CURRENT_USER,
     payload: {
         id
     }

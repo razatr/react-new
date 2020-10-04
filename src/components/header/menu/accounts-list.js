@@ -5,6 +5,7 @@ import { setCurrentUser } from '../../../AC'
 
 function AccountList(props) {
     const { users, setCurrentUser } = props
+
     return users.map(user => (
         <MenuItem
             key={user.id}

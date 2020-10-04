@@ -1,6 +1,8 @@
+import { ADD_TO_CART, REMOVE_FROM_CART, DELETE_CART } from '../constants'
+
 export default (cartState = {}, action) => {
     switch (action.type) {
-        case 'ADD_TO_CART': {
+        case ADD_TO_CART: {
             const id = action.payload.id
             return {
                 ...cartState,
@@ -8,7 +10,7 @@ export default (cartState = {}, action) => {
             }
         }
 
-        case 'REMOVE_FROM_CART': {
+        case REMOVE_FROM_CART: {
             const id = action.payload.id
             const newCartState = {
                 ...cartState
@@ -21,7 +23,7 @@ export default (cartState = {}, action) => {
             return newCartState
         }
 
-        case 'DELETE_CART': {
+        case DELETE_CART: {
             const id = action.payload.id
 
             const newCartState = {
