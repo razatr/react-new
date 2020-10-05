@@ -11,26 +11,26 @@ function AddReviewForm(props) {
 
     const { userId, username, addReview, restaurantId } = props
 
-    const changeRating = (event, newValue) => {
-        setValue(newValue)
-    }
-
     return (
         <React.Fragment>
             <Typography>{username}</Typography>
             <Rating
-                name="simple-controlled"
                 value={value}
-                onChange={changeRating}
+                onChange={(event, newValue) => setValue(newValue)}
                 precision={0.5}
             />
             <TextField
+                value={text}
                 label="Review"
                 placeholder="Write what you think of us"
                 multiline
                 onChange={e => setText(e.target.value)}
             />
-            <Button onClick={() => addReview(userId, text, value, restaurantId)}>
+            <Button onClick={() => {
+                setValue(0)
+                setText('')
+                addReview(userId, text, value, restaurantId)
+            }}>
                 <Typography>Submit</Typography>
             </Button>
         </React.Fragment>
