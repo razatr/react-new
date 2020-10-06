@@ -7,13 +7,21 @@ import Header from './components/header'
 import OrderList from './components/order-list'
 import { restaurantsSelector, loadingSelector } from './selectors'
 import { loadRestaurants } from './AC'
+import { CircularProgress, Grid } from '@material-ui/core'
 
 function App(props) {
     return (
         <Fragment>
             <Header/>
             {props.loading ? (
-                <h1>Loading</h1>
+                <Grid
+                    container
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                >
+                    <CircularProgress style={{margin: '30px'}}/>
+                </Grid>
             ) : (
                 <RestaurantList
                     restaurants={props.restaurants}

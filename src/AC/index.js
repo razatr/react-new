@@ -58,5 +58,5 @@ export const setCurrentUser = id => ({
 
 export const loadRestaurants = () => ({
     type: LOAD_RESTAURANTS,
-    callAPI: "http://localhost:3001/api/restaurants"
+    callAPI: "http://192.168.1.198:3001/api/restaurants"
 })

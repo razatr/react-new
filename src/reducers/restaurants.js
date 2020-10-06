@@ -32,10 +32,11 @@ export default (restaurantsState = fromJS(initialState), action) => {
         case ADD_REVIEW:
             const { restaurantId } = action.payload
             const { randomId } = action
-            const restIndex = restaurantsState.findKey((restaurant) => restaurant.get('id') === restaurantId)
+            const restIndex = restaurantsState.get('entities')
+                .findKey((restaurant) => restaurant.get('id') === restaurantId)
 
-            return restaurantsState.setIn([restIndex, 'reviews'],
-                restaurantsState.getIn([restIndex, 'reviews']).push(randomId))
+            return restaurantsState.setIn(['entities',restIndex, 'reviews'],
+                restaurantsState.getIn(['entities',restIndex, 'reviews']).push(randomId))
         default:
             return restaurantsState
     }

@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 app.use(bodyParser.json())
 app.use('/api', api)
 
-app.listen(port, 'localhost', function (err) {
+app.listen(port, '192.168.1.198', function (err) {
     if (err) {
         console.log(err)
         return
