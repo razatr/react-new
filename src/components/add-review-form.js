@@ -15,9 +15,9 @@ function AddReviewForm(props) {
         <React.Fragment>
             <Typography>{username}</Typography>
             <Rating
+                name={restaurantId}
                 value={value}
                 onChange={(event, newValue) => setValue(newValue)}
-                precision={0.5}
             />
             <TextField
                 value={text}

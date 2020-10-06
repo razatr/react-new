@@ -6,7 +6,6 @@ export default (
 ) => {
     switch (action.type) {
         case SET_CURRENT_USER:
-            console.log('dsfsfsdf')
             return action.payload.id
         default:
             return accountState

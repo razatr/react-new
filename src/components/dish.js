@@ -32,7 +32,7 @@ const initMapStateToProps = () => {
 
     return (state, ownProps) => {
         return {
-            amount: state.cart[ownProps.id] || 0,
+            amount: state.cart.toJS()[ownProps.id] || 0,
             ...dishSelector(state, ownProps)
         }
     }

@@ -19,5 +19,5 @@ CartBadge.propTypes = {
 }
 
 export default connect(state => ({
-    amount: Object.values(state.cart).reduce((total, dishes) => total + dishes, 0)
+    amount: Object.values(state.cart.toJS()).reduce((total, dishes) => total + dishes, 0)
 }))(CartBadge)
