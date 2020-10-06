@@ -18,5 +18,5 @@ function App(props) {
 }
 
 export default connect(store => ({
-    restaurants: store.restaurants
+    restaurants: store.restaurants.toJS()
 }))(App)

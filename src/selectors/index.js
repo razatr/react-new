@@ -4,10 +4,10 @@ export const idSelector = (_, ownProps) => ownProps.id
 export const userIdSelector = (_, ownProps) => {
     return ownProps.userId
 }
-export const restaurantsSelector = state => state.restaurants
+export const restaurantsSelector = state => state.restaurants.toJS()
 export const cartSelector = state => state.cart.toJS()
 export const dishesSelector = state => state.dishes
-export const reviewsSelector = state => state.reviews
+export const reviewsSelector = state => state.reviews.toJS()
 export const usersSelector = state => state.users
 
 export const createDishSelector = () => {
