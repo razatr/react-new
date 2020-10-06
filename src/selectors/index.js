@@ -1,14 +1,14 @@
 import { createSelector } from 'reselect'
 
 export const idSelector = (_, ownProps) => ownProps.id
-export const userIdSelector = (_, ownProps) => {
-    return ownProps.userId
-}
-export const restaurantsSelector = state => state.restaurants.toJS()
+export const userIdSelector = (_, ownProps) => ownProps.userId
+export const restaurantsSelector = state =>
+    state.restaurants.get('entities').toJS()
 export const cartSelector = state => state.cart.toJS()
 export const dishesSelector = state => state.dishes
 export const reviewsSelector = state => state.reviews.toJS()
 export const usersSelector = state => state.users
+export const loadingSelector = state => state.restaurants.get('loading')
 
 export const createDishSelector = () => {
     return createSelector(

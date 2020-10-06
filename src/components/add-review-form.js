@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { Typography, TextField, Button } from '@material-ui/core'
 import { Rating } from '@material-ui/lab'
 import { connect } from 'react-redux'
@@ -12,7 +12,7 @@ function AddReviewForm(props) {
     const { userId, username, addReview, restaurantId } = props
 
     return (
-        <React.Fragment>
+        <Fragment>
             <Typography>{username}</Typography>
             <Rating
                 name={restaurantId}
@@ -33,7 +33,7 @@ function AddReviewForm(props) {
             }}>
                 <Typography>Submit</Typography>
             </Button>
-        </React.Fragment>
+        </Fragment>
     )
 }
 

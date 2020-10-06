@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Restaurant from './restaurant'
 
 function RestaurantList(props) {
@@ -8,9 +8,13 @@ function RestaurantList(props) {
         setExpanded(isExpanded ? panel : false)
     }
 
-    const {
-        restaurants
-    } = props
+    const { restaurants, fetchData } = props
+
+    useEffect(() => {
+        restaurants.length === 0 &&
+        fetchData &&
+        fetchData()
+    })
 
     return (
         restaurants.map(restaurant => (

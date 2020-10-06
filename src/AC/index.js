@@ -5,7 +5,8 @@ import {
     ADD_TO_CART,
     DELETE_CART,
     REMOVE_FROM_CART,
-    SET_CURRENT_USER
+    SET_CURRENT_USER,
+    LOAD_RESTAURANTS
 } from '../constants'
 
 export const increase = () => ({
@@ -53,4 +54,9 @@ export const setCurrentUser = id => ({
     payload: {
         id
     }
+})
+
+export const loadRestaurants = () => ({
+    type: LOAD_RESTAURANTS,
+    callAPI: "http://localhost:3001/api/restaurants"
 })
