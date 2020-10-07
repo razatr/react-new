@@ -6,7 +6,10 @@ import {
     DELETE_CART,
     REMOVE_FROM_CART,
     SET_CURRENT_USER,
-    LOAD_RESTAURANTS
+    LOAD_RESTAURANTS,
+    LOAD_DISHES,
+    LOAD_REVIEWS,
+    LOAD_USERS
 } from '../constants'
 
 export const increase = () => ({
@@ -59,4 +62,19 @@ export const setCurrentUser = id => ({
 export const loadRestaurants = () => ({
     type: LOAD_RESTAURANTS,
     callAPI: "http://192.168.1.198:3001/api/restaurants"
+})
+
+export const loadDishes = () => ({
+    type: LOAD_DISHES,
+    callAPI: "http://192.168.1.198:3001/api/dishes"
+})
+
+export const loadReviews = () => ({
+    type: LOAD_REVIEWS,
+    callAPI: "http://192.168.1.198:3001/api/reviews"
+})
+
+export const loadUsers = () => ({
+    type: LOAD_USERS,
+    callAPI: "http://192.168.1.198:3001/api/users"
 })

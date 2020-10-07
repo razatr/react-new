@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import './App.css'
 import RestaurantList from './components/restaurant-list'
 import UserForm from './components/user-form'
 import Header from './components/header'
