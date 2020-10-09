@@ -4,7 +4,7 @@ import RestaurantList from './components/restaurant-list'
 import UserForm from './components/user-form'
 import Header from './components/header'
 import OrderList from './components/order-list'
-import { restaurantsSelector, loadingSelector } from './selectors'
+import { restaurantsSelector, restaurantsLoadingSelector } from './selectors'
 import { loadRestaurants } from './AC'
 import { CircularProgress, Grid } from '@material-ui/core'
 
@@ -35,7 +35,7 @@ function App(props) {
 
 export default connect(state => ({
     restaurants: restaurantsSelector(state),
-    loading: loadingSelector(state)
+    loading: restaurantsLoadingSelector(state)
 }), {
     loadRestaurants
 })(App)

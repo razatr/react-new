@@ -5,10 +5,14 @@ export const userIdSelector = (_, ownProps) => ownProps.userId
 export const restaurantsSelector = state =>
     state.restaurants.get('entities').toJS()
 export const cartSelector = state => state.cart.toJS()
-export const dishesSelector = state => state.dishes
+export const dishesSelector = state =>
+    state.dishes.get('entities').toJS()
 export const reviewsSelector = state => state.reviews.toJS()
 export const usersSelector = state => state.users
-export const loadingSelector = state => state.restaurants.get('loading')
+
+//loading and loaded selectors
+export const restaurantsLoadingSelector = state => state.restaurants.get('loading')
+export const dishesLoadingSelector = state => state.dishes.get('loading')
 
 export const createDishSelector = () => {
     return createSelector(
