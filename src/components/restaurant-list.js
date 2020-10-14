@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Restaurant from './restaurant'
+import { connect } from 'react-redux'
+import { restaurantsSelector, reviewsLoadedSelector } from '../selectors'
 
 function RestaurantList(props) {
     const [expanded, setExpanded] = useState(false)
@@ -16,17 +18,24 @@ function RestaurantList(props) {
         fetchData()
     })
 
+    console.log('render r-list')
+
     return (
         restaurants.map(restaurant => (
+            props.isReviewsLoaded ? (
                 <Restaurant
-                    key={restaurant.id}
-                    {...restaurant}
-                    handleChange={handleChange}
-                    expanded={expanded}
+                    key={ restaurant.id }
+                    { ...restaurant }
+                    handleChange={ handleChange }
+                    expanded={ expanded }
                 />
+                ) : null
             )
         )
     )
 }
 
-export default RestaurantList
+export default connect((state) => ({
+    restaurants: restaurantsSelector(state),
+    isReviewsLoaded: reviewsLoadedSelector(state)
+}))(RestaurantList)

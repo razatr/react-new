@@ -11,15 +11,15 @@ function Dish(props) {
     return (
         <div>
             <Grid container justify='space-between'>
-                <Typography display='block'>{name}</Typography>
-                <Typography display='block'>{price}</Typography>
+                <Typography display='block'>{ name }</Typography>
+                <Typography display='block'>{ price }</Typography>
             </Grid>
-            <IconButton onClick={() => decrease(id)}
+            <IconButton onClick={ () => decrease(id) }
                         size="small">
                 <RemoveIcon/>
             </IconButton>
-            <Typography display='inline'>{amount}</Typography>
-            <IconButton onClick={() => increase(id)}
+            <Typography display='inline'>{ amount }</Typography>
+            <IconButton onClick={ () => increase(id) }
                         size="small">
                 <AddIcon/>
             </IconButton>

@@ -4,15 +4,25 @@ export const idSelector = (_, ownProps) => ownProps.id
 export const userIdSelector = (_, ownProps) => ownProps.userId
 export const restaurantsSelector = state =>
     state.restaurants.get('entities').toJS()
-export const cartSelector = state => state.cart.toJS()
 export const dishesSelector = state =>
     state.dishes.get('entities').toJS()
-export const reviewsSelector = state => state.reviews.toJS()
-export const usersSelector = state => state.users
+export const reviewsSelector = state =>
+    state.reviews.get('entities').toJS()
+export const usersSelector = state =>
+    state.users.get('entities').toJS()
+export const cartSelector = state => state.cart.toJS()
 
 //loading and loaded selectors
 export const restaurantsLoadingSelector = state => state.restaurants.get('loading')
 export const dishesLoadingSelector = state => state.dishes.get('loading')
+export const reviewsLoadingSelector = state => state.reviews.get('loading')
+export const usersLoadingSelector = state => state.users.get('loading')
+
+export const restaurantsLoadedSelector = state => state.restaurants.get('loaded')
+export const dishesLoadedSelector = state => state.dishes.get('loaded')
+export const reviewsLoadedSelector = state => state.reviews.get('loaded')
+export const usersLoadedSelector = state => state.users.get('loaded')
+
 
 export const createDishSelector = () => {
     return createSelector(

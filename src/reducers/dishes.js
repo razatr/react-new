@@ -1,4 +1,3 @@
-import { normalizedDishes } from '../fixtures'
 import { fromJS } from 'immutable'
 import { LOAD_DISHES, START, SUCCESS,FAIL } from '../constants'
 

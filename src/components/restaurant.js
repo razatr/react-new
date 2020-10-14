@@ -12,6 +12,7 @@ import { Rating } from '@material-ui/lab'
 import { connect } from 'react-redux'
 import { createReviewSelector } from '../selectors'
 import AddReviewForm from './add-review-form'
+import { fromJS } from 'immutable'
 
 function Restaurant(props) {
     const { name, menu, reviews, expanded, handleChange, id } = props
@@ -23,18 +24,20 @@ function Restaurant(props) {
         return Math.round(2 * avg) / 2
     }
 
+    console.log('render rest')
+
     return (
-        <Accordion expanded={expanded === id} onChange={handleChange(id)}>
+        <Accordion expanded={ expanded === id } onChange={ handleChange(id) }>
             <AccordionSummary>
                 <Grid container justify="space-between">
-                    <Typography variant="h6">{name}</Typography>
-                    <Rating name="read-only" value={avgRate()} readOnly precision={0.5}/>
+                    <Typography variant="h6">{ name }</Typography>
+                    <Rating name="read-only" value={ avgRate() } readOnly precision={ 0.5 }/>
                 </Grid>
             </AccordionSummary>
-            <AccordionDetails style={{ flexDirection: 'column' }}>
-                <RestaurantMenu menu={menu}/>
-                <Reviews reviews={reviews}/>
-                <AddReviewForm restaurantId={id}/>
+            <AccordionDetails style={ { flexDirection: 'column' } }>
+                <RestaurantMenu menu={ menu }/>
+                <Reviews reviews={ reviews }/>
+                <AddReviewForm restaurantId={ id }/>
             </AccordionDetails>
         </Accordion>
     )
@@ -46,6 +49,7 @@ const initMapStateToProps = () => {
     return (state, ownProps) => {
         return {
             reviewsRate: ownProps.reviews.map(review => {
+                console.log('state---', fromJS(state).toJS())
                 return reviewSelector(state, { id: review }).rating
             })
         }

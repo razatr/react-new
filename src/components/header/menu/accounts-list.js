@@ -2,9 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { MenuItem } from '@material-ui/core'
 import { setCurrentUser } from '../../../AC'
+import {usersSelector} from '../../../selectors'
 
 function AccountList(props) {
     const { users, setCurrentUser } = props
+
+    console.log('users - ', users)
 
     return users.map(user => (
         <MenuItem
@@ -20,7 +23,7 @@ function AccountList(props) {
 
 export default connect(
     state => ({
-        users: state.users
+        users: usersSelector(state)
     }),
     {
         setCurrentUser
