@@ -13,24 +13,18 @@ function AddReviewForm(props) {
 
     return (
         <Fragment>
-            <Typography>{username}</Typography>
-            <Rating
-                name={restaurantId}
-                value={value}
-                onChange={(event, newValue) => setValue(newValue)}
-            />
-            <TextField
-                value={text}
-                label="Review"
-                placeholder="Write what you think of us"
-                multiline
-                onChange={e => setText(e.target.value)}
-            />
-            <Button onClick={() => {
+            <Typography>{ username }</Typography>
+            <Rating name={ restaurantId } value={ value } onChange={ (event, newValue) => setValue(newValue) } />
+            <TextField value={ text }
+                       label="Review"
+                       placeholder="Write what you think of us"
+                       multiline
+                       onChange={ e => setText(e.target.value) } />
+            <Button onClick={ () => {
                 setValue(0)
                 setText('')
                 addReview(userId, text, value, restaurantId)
-            }}>
+            } }>
                 <Typography>Submit</Typography>
             </Button>
         </Fragment>

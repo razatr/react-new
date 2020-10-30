@@ -35,8 +35,8 @@ export default (restaurantsState = fromJS(initialState), action) => {
             const restIndex = restaurantsState.get('entities')
                 .findKey((restaurant) => restaurant.get('id') === restaurantId)
 
-            return restaurantsState.setIn(['entities',restIndex, 'reviews'],
-                restaurantsState.getIn(['entities',restIndex, 'reviews']).push(randomId))
+            return restaurantsState.setIn(['entities', restIndex, 'reviews'],
+                restaurantsState.getIn(['entities', restIndex, 'reviews']).push(randomId))
         default:
             return restaurantsState
     }

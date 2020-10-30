@@ -22,7 +22,8 @@ export default store => next => action => {
                     error: e
                 })
             })
-    } else {
+    }
+    else {
         next(rest)
     }
 };

@@ -9,10 +9,8 @@ const accordion = OriginalComponent =>
         render() {
             return (
                 <OriginalComponent
-                    {...this.props}
-                    {...this.state}
-                    toggleOpenItem={this.toggleOpenItem}
-                />
+                    { ...this.props }
+                    { ...this.state } toggleOpenItem={ this.toggleOpenItem } />
             )
         }
 

@@ -14,14 +14,12 @@ function Dish(props) {
                 <Typography display='block'>{ name }</Typography>
                 <Typography display='block'>{ price }</Typography>
             </Grid>
-            <IconButton onClick={ () => decrease(id) }
-                        size="small">
-                <RemoveIcon/>
+            <IconButton onClick={ () => decrease(id) } size="small">
+                <RemoveIcon />
             </IconButton>
             <Typography display='inline'>{ amount }</Typography>
-            <IconButton onClick={ () => increase(id) }
-                        size="small">
-                <AddIcon/>
+            <IconButton onClick={ () => increase(id) } size="small">
+                <AddIcon />
             </IconButton>
         </div>
     )

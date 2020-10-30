@@ -6,7 +6,7 @@ export default (cartState = fromJS({}), action) => {
         case ADD_TO_CART: {
             const { id } = action.payload
             const previousValue = cartState.get(id)
-            return cartState.set(id, previousValue? previousValue + 1 : 1)
+            return cartState.set(id, previousValue ? previousValue + 1 : 1)
         }
 
         case REMOVE_FROM_CART: {
@@ -14,14 +14,15 @@ export default (cartState = fromJS({}), action) => {
 
             if (cartState.get(id) === 1) {
                 return cartState.delete(id)
-            } else if (cartState.get(id)) {
+            }
+            else if (cartState.get(id)) {
                 return cartState.set(id, cartState.get(id) - 1)
             }
             return cartState
         }
 
         case DELETE_CART: {
-            const {id} = action.payload
+            const { id } = action.payload
 
             return cartState.delete(id)
         }

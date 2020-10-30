@@ -15,10 +15,10 @@ const opener = OriginalComponent =>
             const { isOpen } = this.state
             return (
                 <React.Fragment>
-                    <Button onClick={this.onClick}>
-                        {isOpen ? 'Close reviews' : 'Open reviews'}
+                    <Button onClick={ this.onClick }>
+                        { isOpen ? 'Close reviews' : 'Open reviews' }
                     </Button>
-                    {isOpen ? <OriginalComponent {...this.props}/> : null}
+                    { isOpen ? <OriginalComponent { ...this.props } /> : null }
                 </React.Fragment>
             )
         }

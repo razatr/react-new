@@ -347,9 +347,9 @@ const normalizedReviews = [
         rating: 5
     },
     {
-        id: "13b642d7-5e86-4717-a466-0640a1dee076",
-        userId: "52a63cc0-5a6f-41f3-9774-0161ea4c9b0c",
-        text: "Best bakery",
+        id: '13b642d7-5e86-4717-a466-0640a1dee076',
+        userId: '52a63cc0-5a6f-41f3-9774-0161ea4c9b0c',
+        text: 'Best bakery',
         rating: 5
     }
 ]

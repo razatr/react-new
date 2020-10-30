@@ -11,7 +11,7 @@ const initialState = {
 
 export default (usersState = fromJS(initialState), action) => {
 
-    switch (action.type){
+    switch (action.type) {
         case LOAD_USERS + START:
             return usersState.set('loading', true)
 

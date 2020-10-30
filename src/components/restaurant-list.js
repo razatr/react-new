@@ -22,13 +22,9 @@ function RestaurantList(props) {
 
     return (
         restaurants.map(restaurant => (
-            props.isReviewsLoaded ? (
-                <Restaurant
-                    key={ restaurant.id }
-                    { ...restaurant }
-                    handleChange={ handleChange }
-                    expanded={ expanded }
-                />
+                props.isReviewsLoaded ? (
+                    <Restaurant key={ restaurant.id }
+                                { ...restaurant } handleChange={ handleChange } expanded={ expanded } />
                 ) : null
             )
         )

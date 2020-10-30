@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable'
-import { LOAD_DISHES, START, SUCCESS,FAIL } from '../constants'
+import { LOAD_DISHES, START, SUCCESS, FAIL } from '../constants'
 
 const initialState = {
     loading: false,
@@ -9,7 +9,7 @@ const initialState = {
 }
 
 export default (dishesState = fromJS(initialState), action) => {
-    switch (action.type){
+    switch (action.type) {
 
         case LOAD_DISHES + START:
             return dishesState.set('loading', true)

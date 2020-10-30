@@ -3,7 +3,7 @@ import HeaderMenu from './menu'
 
 function Header() {
     return (
-        <HeaderMenu/>
+        <HeaderMenu />
     )
 }
 

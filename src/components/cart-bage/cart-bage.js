@@ -7,8 +7,8 @@ import { Badge, IconButton } from '@material-ui/core'
 function CartBadge(props) {
     return (
         <IconButton color="inherit">
-            <Badge badgeContent={props.amount} color="secondary">
-                <ShoppingCartOutlinedIcon/>
+            <Badge badgeContent={ props.amount } color="secondary">
+                <ShoppingCartOutlinedIcon />
             </Badge>
         </IconButton>
     )

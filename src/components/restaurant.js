@@ -31,13 +31,13 @@ function Restaurant(props) {
             <AccordionSummary>
                 <Grid container justify="space-between">
                     <Typography variant="h6">{ name }</Typography>
-                    <Rating name="read-only" value={ avgRate() } readOnly precision={ 0.5 }/>
+                    <Rating name="read-only" value={ avgRate() } readOnly precision={ 0.5 } />
                 </Grid>
             </AccordionSummary>
             <AccordionDetails style={ { flexDirection: 'column' } }>
-                <RestaurantMenu menu={ menu }/>
-                <Reviews reviews={ reviews }/>
-                <AddReviewForm restaurantId={ id }/>
+                <RestaurantMenu menu={ menu } />
+                <Reviews reviews={ reviews } />
+                <AddReviewForm restaurantId={ id } />
             </AccordionDetails>
         </Accordion>
     )

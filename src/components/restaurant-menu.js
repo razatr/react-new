@@ -10,15 +10,15 @@ function RestaurantMenu(props) {
     const { loadDishes, loading, loaded } = props
 
     useEffect(() => {
-        if(!loaded)
+        if (!loaded)
             loadDishes()
     })
 
     return (
-        loading ? <CircularProgress/> : <div style={{ width: '100%' }}>
-            {props.menu.map(dishId => (
-                <Dish key={dishId} id={dishId}/>
-            ))}
+        loading ? <CircularProgress /> : <div style={ { width: '100%' } }>
+            { props.menu.map(dishId => (
+                <Dish key={ dishId } id={ dishId } />
+            )) }
         </div>
     )
 }

@@ -18,43 +18,43 @@ function OrderList(props) {
     const { cart: rows } = props
 
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={ Paper }>
             <Table aria-label="a dense table">
                 <TableHead>
-                    {rows.length ? (<TableRow>
+                    { rows.length ? (<TableRow>
                         <TableCell>Name</TableCell>
                         <TableCell align="right">Count</TableCell>
                         <TableCell align="right">Cost</TableCell>
-                        <TableCell/>
-                    </TableRow>) : null}
+                        <TableCell />
+                    </TableRow>) : null }
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
-                        <TableRow key={row.id}>
+                    { rows.map((row) => (
+                        <TableRow key={ row.id }>
                             <TableCell component="th" scope="row">
-                                {row.name}
+                                { row.name }
                             </TableCell>
-                            <TableCell align="right">{row.count}</TableCell>
-                            <TableCell align="right">{row.cost}</TableCell>
+                            <TableCell align="right">{ row.count }</TableCell>
+                            <TableCell align="right">{ row.cost }</TableCell>
                             <TableCell align="right" padding="none">
-                                <IconButton onClick={() =>
-                                    props.deleteCart(row.id)}>
-                                    <DeleteIcon/>
+                                <IconButton onClick={ () =>
+                                    props.deleteCart(row.id) }>
+                                    <DeleteIcon />
                                 </IconButton>
                             </TableCell>
                         </TableRow>
-                    ))}
-                    {rows.length ? (<TableRow>
+                    )) }
+                    { rows.length ? (<TableRow>
                         <TableCell component="th" scope="row">
                             Total
                         </TableCell>
                         <TableCell align="right">
-                            {rows.reduce((sum, current) => sum + current.count, 0)}
+                            { rows.reduce((sum, current) => sum + current.count, 0) }
                         </TableCell>
                         <TableCell align="right">
-                            {rows.reduce((sum, current) => sum + current.cost, 0)}
+                            { rows.reduce((sum, current) => sum + current.cost, 0) }
                         </TableCell>
-                    </TableRow>) : null}
+                    </TableRow>) : null }
                 </TableBody>
             </Table>
         </TableContainer>

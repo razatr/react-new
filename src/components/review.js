@@ -9,10 +9,10 @@ function Review(props) {
 
     return (
         <div>
-            <Typography variant="h6">{user}</Typography>
-            <Rating name="read-only" value={rating} readOnly precision={0.5}/>
-            <br/>
-            <Typography>{text}</Typography>
+            <Typography variant="h6">{ user }</Typography>
+            <Rating name="read-only" value={ rating } readOnly precision={ 0.5 } />
+            <br />
+            <Typography>{ text }</Typography>
         </div>
     )
 }

@@ -44,23 +44,15 @@ function App(props) {
     return (
         <Fragment>
             { loading ? (
-                <Grid
-                    container
-                    direction="row"
-                    justify="center"
-                    alignItems="center"
-                >
-                    <CircularProgress style={ { margin: '30px' } }/>
+                <Grid container direction="row" justify="center" alignItems="center">
+                    <CircularProgress style={ { margin: '30px' } } />
                 </Grid>
             ) : (
                 <Fragment>
-                    <Header/>
-                    <RestaurantList
-                        restaurants={props.restaurants}
-                        fetchData={props.loadRestaurants}
-                    />
-                    <UserForm/>
-                    <OrderList/>
+                    <Header />
+                    <RestaurantList restaurants={ props.restaurants } fetchData={ props.loadRestaurants } />
+                    <UserForm />
+                    <OrderList />
                 </Fragment>
             ) }
         </Fragment>
