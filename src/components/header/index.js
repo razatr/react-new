@@ -108,17 +108,10 @@ function HeaderMenu() {
     }
 
     const menuId = 'primary-search-account-menu'
-    const renderMenu = (
-        <Menu anchorEl={ anchorEl }
-              anchorOrigin={ { vertical: 'top', horizontal: 'right' } }
-              id={ menuId }
-              keepMounted
-              transformOrigin={ { vertical: 'top', horizontal: 'right' } }
-              open={ isMenuOpen }
-              onClose={ handleMenuClose }>
-            <AccountList />
-        </Menu>
-    )
+    const renderMenu = <AccountList anchorEl={ anchorEl }
+                                    id={ menuId }
+                                    open={ isMenuOpen }
+                                    onClose={ handleMenuClose } />
 
     const mobileMenuId = 'primary-search-account-menu-mobile'
     const renderMobileMenu = (
