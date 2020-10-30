@@ -9,11 +9,13 @@ import {
     restaurantsLoadingSelector,
     reviewsLoadingSelector,
     usersLoadingSelector,
+    dishesLoadingSelector,
     restaurantsLoadedSelector,
     reviewsLoadedSelector,
-    usersLoadedSelector
+    usersLoadedSelector,
+    dishesLoadedSelector
 } from './selectors'
-import { loadRestaurants, loadReviews, loadUsers } from './AC'
+import { loadRestaurants, loadReviews, loadUsers, loadDishes } from './AC'
 import { CircularProgress, Grid } from '@material-ui/core'
 
 function App(props) {
@@ -22,23 +24,30 @@ function App(props) {
         loadRestaurants,
         loadUsers,
         loadReviews,
+        loadDishes,
         restaurantsLoading,
         reviewsLoading,
         usersLoading,
+        dishesLoading,
         restaurantsLoaded,
         reviewsLoaded,
-        usersLoaded
+        usersLoaded,
+        dishesLoaded
     } = props
 
-    const loading = restaurantsLoading || reviewsLoading || usersLoading
+    const loading = restaurantsLoading || reviewsLoading || usersLoading || dishesLoading
 
     useEffect(() => {
         if (!usersLoaded && !usersLoading)
             loadUsers()
         if (!reviewsLoaded && !reviewsLoading)
             loadReviews()
-        if (!restaurantsLoaded && !reviewsLoading && reviewsLoaded && usersLoaded)
+        if (!restaurantsLoading && !restaurantsLoaded) {
             loadRestaurants()
+        }
+        if (!dishesLoading && !dishesLoaded) {
+            loadDishes()
+        }
     })
 
     return (
@@ -64,11 +73,14 @@ export default connect(state => ({
     restaurantsLoading: restaurantsLoadingSelector(state),
     reviewsLoading: reviewsLoadingSelector(state),
     usersLoading: usersLoadingSelector(state),
+    dishesLoading: dishesLoadingSelector(state),
     restaurantsLoaded: restaurantsLoadedSelector(state),
     reviewsLoaded: reviewsLoadedSelector(state),
-    usersLoaded: usersLoadedSelector(state)
+    usersLoaded: usersLoadedSelector(state),
+    dishesLoaded: dishesLoadedSelector(state)
 }), {
-    loadRestaurants,
     loadReviews,
-    loadUsers
+    loadRestaurants,
+    loadUsers,
+    loadDishes
 })(App)

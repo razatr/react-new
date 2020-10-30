@@ -6,8 +6,8 @@ import {
 import { fromJS } from 'immutable'
 
 const initialState = {
-    loaded: false,
     loading: false,
+    loaded: false,
     error: null,
     entities: []
 }

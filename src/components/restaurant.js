@@ -12,7 +12,6 @@ import { Rating } from '@material-ui/lab'
 import { connect } from 'react-redux'
 import { createReviewSelector } from '../selectors'
 import AddReviewForm from './add-review-form'
-import { fromJS } from 'immutable'
 
 function Restaurant(props) {
     const { name, menu, reviews, expanded, handleChange, id } = props
@@ -23,8 +22,6 @@ function Restaurant(props) {
             reviewsRate.reduce((sum, rate) => sum + rate, 0) / reviewsRate.length
         return Math.round(2 * avg) / 2
     }
-
-    console.log('render rest')
 
     return (
         <Accordion expanded={ expanded === id } onChange={ handleChange(id) }>
@@ -49,7 +46,6 @@ const initMapStateToProps = () => {
     return (state, ownProps) => {
         return {
             reviewsRate: ownProps.reviews.map(review => {
-                console.log('state---', fromJS(state).toJS())
                 return reviewSelector(state, { id: review }).rating
             })
         }

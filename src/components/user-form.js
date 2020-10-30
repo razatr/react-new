@@ -1,43 +1,27 @@
 import React, { useState } from 'react'
 import { TextField, Button, Grid } from '@material-ui/core'
 
-function UserForm(props) {
+function UserForm() {
 
-    const [state, setState] = useState({
-        name: '',
-        phone: '',
-        address: ''
-    })
-
-    const { name, phone, address } = state
+    const [nameState, setNameState] = useState('')
+    const [phoneState, setPhoneState] = useState('')
+    const [addressState, setAddressState] = useState('')
 
     const handleNameChange = ev => {
-        setState({
-            name: ev.target.value,
-            phone,
-            address
-        })
+        setNameState(ev.target.value)
     }
 
-    const handlePhoneChange = e => {
-        setState({
-            name,
-            phone: e.target.value,
-            address
-        })
+    const handlePhoneChange = ev => {
+        setPhoneState(ev.target.value)
     }
 
-    const handleAddressChange = e => {
-        setState({
-            name,
-            phone,
-            address: e.target.value
-        })
+    const handleAddressChange = ev => {
+        setAddressState(ev.target.value)
     }
 
-    const submit = e => {
-        e.preventDefault()
-        console.log(state)
+    const submit = ev => {
+        ev.preventDefault()
+        console.log(`${ nameState }, ${ phoneState }, ${ addressState }`)
     }
 
     return (

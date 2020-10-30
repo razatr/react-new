@@ -1,4 +1,3 @@
-import { normalizedUsers } from '../fixtures'
 import { LOAD_USERS, START, SUCCESS, FAIL } from '../constants'
 import { fromJS } from 'immutable'
 

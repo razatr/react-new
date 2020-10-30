@@ -1,4 +1,3 @@
-import { normalizedReviews } from '../fixtures'
 import { ADD_REVIEW, LOAD_REVIEWS, START, SUCCESS, FAIL } from '../constants'
 import { fromJS } from 'immutable'
 
@@ -27,12 +26,15 @@ export default (reviewsState = fromJS(initialState), action) => {
             const { userId, text, rating } = action.payload
             const { randomId } = action
 
-            return reviewsState.push(fromJS({
-                id: randomId,
-                userId,
-                text,
-                rating
-            }))
+            return reviewsState.set('entities', reviewsState
+                .get('entities')
+                .push(fromJS({
+                    id: randomId,
+                    userId,
+                    text,
+                    rating
+                }))
+            )
 
         default:
             return reviewsState
