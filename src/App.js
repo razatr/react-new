@@ -4,6 +4,7 @@ import RestaurantList from './components/restaurant-list'
 import UserForm from './components/user-form'
 import Header from './components/header'
 import OrderList from './components/order-list'
+import { BrowserRouter, Route } from 'react-router-dom'
 import {
     restaurantsSelector,
     restaurantsLoadingSelector,
@@ -57,12 +58,13 @@ function App(props) {
                     <CircularProgress style={ { margin: '30px' } } />
                 </Grid>
             ) : (
-                <Fragment>
+                < BrowserRouter>
                     <Header />
-                    <RestaurantList restaurants={ props.restaurants } fetchData={ props.loadRestaurants } />
-                    <UserForm />
-                    <OrderList />
-                </Fragment>
+                    <Route path={ '/restaurants' } component={ RestaurantList } />
+                    <Route path={ '/user-form' } component={ UserForm } />
+                    <Route path={ '/order-list' } component={ OrderList } />
+                </BrowserRouter>
+
             ) }
         </Fragment>
     )

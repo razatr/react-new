@@ -15,6 +15,7 @@ import {
     AccountCircle,
     MoreVert as MoreIcon
 } from '@material-ui/icons'
+import { NavLink } from 'react-router-dom'
 import CartBadge from '../cart-bage'
 import AccountList from './accounts-list'
 
@@ -142,9 +143,14 @@ function HeaderMenu() {
         <div className={ classes.grow }>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton edge="start" className={ classes.menuButton } color="inherit" aria-label="open drawer">
-                        <MenuIcon />
-                    </IconButton>
+                    <NavLink to={ '/restaurants' }>
+                        <IconButton edge="start"
+                                    className={ classes.menuButton }
+                                    color="inherit"
+                                    aria-label="open drawer">
+                            <MenuIcon />
+                        </IconButton>
+                    </NavLink>
                     <Typography className={ classes.title } variant="h6" noWrap>
                         Rest-Delivery
                     </Typography>
@@ -159,7 +165,9 @@ function HeaderMenu() {
                     </div>
                     <div className={ classes.grow } />
                     <div className={ classes.sectionDesktop }>
-                        <CartBadge />
+                        <NavLink to={ '/order-list' }>
+                            <CartBadge />
+                        </NavLink>
                         <IconButton edge="end"
                                     aria-label="account of current user"
                                     aria-controls={ menuId }
