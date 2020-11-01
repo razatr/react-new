@@ -15,7 +15,7 @@ import {
     AccountCircle,
     MoreVert as MoreIcon
 } from '@material-ui/icons'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import CartBadge from '../cart-bage'
 import AccountList from './accounts-list'
 
@@ -165,8 +165,8 @@ function HeaderMenu() {
                     </div>
                     <div className={ classes.grow } />
                     <div className={ classes.sectionDesktop }>
-                        <NavLink to={ '/order-list' }>
-                            <CartBadge />
+                        <NavLink to="/order-list">
+                            <CartBadge/>
                         </NavLink>
                         <IconButton edge="end"
                                     aria-label="account of current user"

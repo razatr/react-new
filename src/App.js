@@ -4,7 +4,7 @@ import RestaurantList from './components/restaurant-list'
 import UserForm from './components/user-form'
 import Header from './components/header'
 import OrderList from './components/order-list'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 import {
     restaurantsSelector,
     restaurantsLoadingSelector,
@@ -59,6 +59,9 @@ function App(props) {
                 </Grid>
             ) : (
                 < BrowserRouter>
+                    <Route exact path="/">
+                        <Redirect to="/restaurants" />
+                    </Route>
                     <Header />
                     <Route path={ '/restaurants' } component={ RestaurantList } />
                     <Route path={ '/user-form' } component={ UserForm } />
