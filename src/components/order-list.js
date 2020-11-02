@@ -10,8 +10,8 @@ import {
 } from '@material-ui/core'
 import { Delete as DeleteIcon } from '@material-ui/icons'
 import { connect } from 'react-redux'
-import { deleteCart } from '../../AC'
-import { selectCurrentCart } from '../../selectors'
+import { deleteCart } from '../AC'
+import { selectCurrentCart } from '../selectors'
 
 function OrderList(props) {
 

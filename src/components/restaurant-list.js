@@ -1,22 +1,19 @@
-import React, { useState } from 'react'
-import Restaurant from './restaurant'
+import React from 'react'
 import { connect } from 'react-redux'
 import { restaurantsSelector } from '../selectors'
+import RestaurantCard from './restaurant-card'
+import { NavLink } from 'react-router-dom'
 
 function RestaurantList(props) {
-    const [expanded, setExpanded] = useState(false)
-
-    const handleChange = (panel) => (event, isExpanded) => {
-        setExpanded(isExpanded ? panel : false)
-    }
 
     const { restaurants } = props
 
-
     return (
         restaurants.map(restaurant => (
-                <Restaurant key={ restaurant.id }
-                            { ...restaurant } handleChange={ handleChange } expanded={ expanded } />
+                <NavLink key={ restaurant.id } to={ 'restaurant/' + restaurant.id }>
+                    <RestaurantCard key={ restaurant.id }
+                                    { ...restaurant } />
+                </NavLink>
             )
         )
     )
