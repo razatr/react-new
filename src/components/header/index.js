@@ -1,23 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { fade, makeStyles } from '@material-ui/core/styles'
 import {
     AppBar,
     Toolbar,
-    IconButton,
     Typography,
-    InputBase,
-    MenuItem,
-    Menu
+    InputBase
 } from '@material-ui/core'
 import {
-    Menu as MenuIcon,
-    Search as SearchIcon,
-    AccountCircle,
-    MoreVert as MoreIcon
+    Search as SearchIcon
 } from '@material-ui/icons'
-import { NavLink, Link } from 'react-router-dom'
-import CartBadge from '../cart-bage'
-import AccountList from './accounts-list'
+import { NavLink } from 'react-router-dom'
+import AppMenu from './app-menu'
+import MobileMenu from './mobile-menu'
+import DesktopMenu from './desktop-menu'
 
 const useStyles = makeStyles(theme => ({
     grow: {
@@ -85,75 +80,17 @@ const useStyles = makeStyles(theme => ({
 
 function HeaderMenu() {
     const classes = useStyles()
-    const [anchorEl, setAnchorEl] = useState(null)
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
-
-    const isMenuOpen = Boolean(anchorEl)
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
-
-    const handleProfileMenuOpen = event => {
-        setAnchorEl(event.currentTarget)
-    }
-
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null)
-    }
-
-    const handleMenuClose = () => {
-        setAnchorEl(null)
-        handleMobileMenuClose()
-    }
-
-    const handleMobileMenuOpen = event => {
-        setMobileMoreAnchorEl(event.currentTarget)
-    }
-
-    const menuId = 'primary-search-account-menu'
-    const renderMenu = <AccountList anchorEl={ anchorEl }
-                                    id={ menuId }
-                                    open={ isMenuOpen }
-                                    onClose={ handleMenuClose } />
-
-    const mobileMenuId = 'primary-search-account-menu-mobile'
-    const renderMobileMenu = (
-        <Menu anchorEl={ mobileMoreAnchorEl }
-              anchorOrigin={ { vertical: 'top', horizontal: 'right' } }
-              id={ mobileMenuId }
-              keepMounted
-              transformOrigin={ { vertical: 'top', horizontal: 'right' } }
-              open={ isMobileMenuOpen }
-              onClose={ handleMobileMenuClose }>
-            <MenuItem>
-                <CartBadge />
-                <p>Cart Badge</p>
-            </MenuItem>
-            <MenuItem onClick={ handleProfileMenuOpen }>
-                <IconButton aria-label="account of current user"
-                            aria-controls="primary-search-account-menu"
-                            aria-haspopup="true"
-                            color="inherit">
-                    <AccountCircle />
-                </IconButton>
-                <p>Profile</p>
-            </MenuItem>
-        </Menu>
-    )
 
     return (
         <div className={ classes.grow }>
             <AppBar position="static">
                 <Toolbar>
+                    <AppMenu className={ classes.menuButton } />
                     <NavLink to={ '/restaurants' }>
-                        <IconButton edge="start"
-                                    className={ classes.menuButton }
-                                    color="inherit"
-                                    aria-label="open drawer">
-                            <MenuIcon />
-                        </IconButton>
+                        <Typography className={ classes.title } variant="h6" noWrap>
+                            Rest-Delivery
+                        </Typography>
                     </NavLink>
-                    <Typography className={ classes.title } variant="h6" noWrap>
-                        Rest-Delivery
-                    </Typography>
                     <div className={ classes.search }>
                         <div className={ classes.searchIcon }>
                             <SearchIcon />
@@ -165,31 +102,13 @@ function HeaderMenu() {
                     </div>
                     <div className={ classes.grow } />
                     <div className={ classes.sectionDesktop }>
-                        <NavLink to="/order-list">
-                            <CartBadge/>
-                        </NavLink>
-                        <IconButton edge="end"
-                                    aria-label="account of current user"
-                                    aria-controls={ menuId }
-                                    aria-haspopup="true"
-                                    onClick={ handleProfileMenuOpen }
-                                    color="inherit">
-                            <AccountCircle />
-                        </IconButton>
+                        <DesktopMenu />
                     </div>
                     <div className={ classes.sectionMobile }>
-                        <IconButton aria-label="show more"
-                                    aria-controls={ mobileMenuId }
-                                    aria-haspopup="true"
-                                    onClick={ handleMobileMenuOpen }
-                                    color="inherit">
-                            <MoreIcon />
-                        </IconButton>
+                        <MobileMenu />
                     </div>
                 </Toolbar>
             </AppBar>
-            { renderMobileMenu }
-            { renderMenu }
         </div>
     )
 }
