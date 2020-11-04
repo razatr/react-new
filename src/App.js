@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
 import { connect } from 'react-redux'
-import RestaurantList from './components/restaurant-list'
 import UserForm from './components/user-form'
 import Header from './components/header'
 import OrderList from './components/order-list'
@@ -18,6 +17,7 @@ import {
 } from './selectors'
 import { loadRestaurants, loadReviews, loadUsers, loadDishes } from './AC'
 import { CircularProgress, Grid } from '@material-ui/core'
+import RestaurantPage from './components/routes/restaurantsPage'
 
 function App(props) {
 
@@ -63,11 +63,10 @@ function App(props) {
                         <Redirect to="/restaurants" />
                     </Route>
                     <Header />
-                    <Route path={ '/restaurants' } component={ RestaurantList } />
+                    <Route path={ '/restaurants' } component={ RestaurantPage } />
                     <Route path={ '/user-form' } component={ UserForm } />
                     <Route path={ '/order-list' } component={ OrderList } />
                 </BrowserRouter>
-
             ) }
         </Fragment>
     )

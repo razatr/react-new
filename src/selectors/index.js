@@ -32,7 +32,17 @@ export const createDishSelector = () => {
             return dishes.find(dish => dish.id === id)
         }
     )
+}
 
+export const createRestaurantSelector = () => {
+    return createSelector(
+        restaurantsSelector,
+        idSelector,
+        (restaurants, id) => {
+            console.log(restaurants)
+            return restaurants.find(dish => dish.id === id)
+        }
+    )
 }
 
 export const createUserSelector = () => {

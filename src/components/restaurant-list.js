@@ -8,9 +8,8 @@ function RestaurantList(props) {
 
     const { restaurants } = props
 
-    return (
-        restaurants.map(restaurant => (
-                <NavLink key={ restaurant.id } to={ 'restaurant/' + restaurant.id }>
+    return (restaurants.map(restaurant => (
+                <NavLink key={ restaurant.id } to={ '/restaurants/' + restaurant.id }>
                     <RestaurantCard key={ restaurant.id }
                                     { ...restaurant } />
                 </NavLink>

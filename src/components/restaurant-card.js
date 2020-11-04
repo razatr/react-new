@@ -9,6 +9,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         alignItems: 'flex-end',
         justifyContent: 'space-around',
+        maxWidth: theme.spacing(51),
         background: 'url(https://www.maggi.ru/data/images/recept/img640x500/recept_2720_58kc.jpg) bottom/cover',
         '&:hover': {
             background: 'linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4) ), url(https://www.maggi.ru/data/images/recept/img640x500/recept_2720_58kc.jpg) bottom/cover'
