@@ -1,19 +1,31 @@
 import React from 'react'
 import { Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import RestaurantRating from './restaurant-rating'
 
 const useStyles = makeStyles(theme => ({
     card: {
         margin: theme.spacing(3),
         height: theme.spacing(18),
         display: 'flex',
-        alignItems: 'flex-end',
-        justifyContent: 'space-around',
+        flexDirection: 'column-reverse',
         maxWidth: theme.spacing(51),
-        background: 'url(https://www.maggi.ru/data/images/recept/img640x500/recept_2720_58kc.jpg) bottom/cover',
-        '&:hover': {
-            background: 'linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4) ), url(https://www.maggi.ru/data/images/recept/img640x500/recept_2720_58kc.jpg) bottom/cover'
-        }
+        background: 'url(https://www.maggi.ru/data/images/recept/img640x500/recept_2720_58kc.jpg) top/cover',
+    },
+    description: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        background: 'rgba(50, 50, 50, 0.4)',
+        borderRadius: `0 0 ${ theme.spacing(1) / 2 }px ${ theme.spacing(1) / 2 }px`
+    },
+    fill: {
+        borderRadius: `${ theme.spacing(1) / 2 }px ${ theme.spacing(1) / 2 }px 0 0`,
+        transition: 'flex-grow 200ms ease-in',
+        background: 'linear-gradient(rgba(50, 50, 50, 0), rgba(50, 50, 50, 0.4))'
+    },
+    title: {
+        color: 'white'
     }
 }))
 
@@ -21,10 +33,26 @@ function RestaurantCard(props) {
 
     const classes = useStyles()
 
-    const { name } = props
+    const { name, reviews } = props
 
-    return <Paper elevation={ 3 } className={ classes.card }>
-        <Typography variant="h6">{ name }</Typography>
+    const getFillElem = (element) => {
+        return element.classList.contains(classes.card) ? element : getFillElem(element.parentElement)
+    }
+
+    const onCard = ev => {
+        getFillElem(ev.target).lastChild.style.flexGrow = '1'
+    }
+
+    const leaveCard = ev => {
+        getFillElem(ev.target).lastChild.style.flexGrow = '0'
+    }
+
+    return <Paper elevation={ 3 } className={ classes.card } onMouseOver={ onCard } onMouseOut={ leaveCard }>
+        <div className={ classes.description }>
+            <Typography className={ classes.title } variant="h6">{ name }</Typography>
+            <RestaurantRating reviews={ reviews } />
+        </div>
+        <div className={ classes.fill } />
     </Paper>
 }
 

@@ -37,7 +37,6 @@ function Restaurant(props) {
 
 const initMapStateToProps = () => {
     const restaurantSelector = createRestaurantSelector()
-
     return (state, ownProps) => restaurantSelector(state, ownProps)
 }
 

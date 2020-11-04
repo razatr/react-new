@@ -11,6 +11,7 @@ import { NavLink, Route } from 'react-router-dom'
 import MobileMenu from './mobile-menu'
 import DesktopMenu from './desktop-menu'
 import ButtonBack from './button-back'
+import AppMenu from './app-menu'
 
 const useStyles = makeStyles(theme => ({
     grow: {
@@ -20,10 +21,7 @@ const useStyles = makeStyles(theme => ({
         marginRight: theme.spacing(2)
     },
     title: {
-        display: 'none',
-        [theme.breakpoints.up('sm')]: {
-            display: 'block'
-        }
+        display: 'block'
     },
     search: {
         position: 'relative',
@@ -83,17 +81,20 @@ function HeaderMenu() {
         <div className={ classes.grow }>
             <AppBar position="static">
                 <Toolbar>
-                    {/*<AppMenu className={ classes.menuButton } />*/ }
                     <Route path={ '/order-list/' } render={ () => (<ButtonBack className={ classes.menuButton } />) } />
-                    <Route path={ '/restaurants/:id' } render={ ({ match }) => {
-                        return match.params.id ? <ButtonBack className={ classes.menuButton } /> : null
+                    <Route path={ '/restaurants/:id' } children={ ({ match }) => {
+                        if (match)
+                            return match.params.id ? <ButtonBack className={ classes.menuButton } /> : null
                     } } />
+                    <Route exact
+                           path={ '/restaurants/' }
+                           render={ () => (<AppMenu className={ classes.menuButton } />) } />
                     <NavLink to={ '/restaurants' }>
                         <Typography className={ classes.title } variant="h6" noWrap>
                             Rest-Delivery
                         </Typography>
                     </NavLink>
-                    <div className={ classes.search }>
+                    {/* <div className={ classes.search }>
                         <div className={ classes.searchIcon }>
                             <SearchIcon />
                         </div>
@@ -101,7 +102,7 @@ function HeaderMenu() {
                             root: classes.inputRoot,
                             input: classes.inputInput
                         } } inputProps={ { 'aria-label': 'search' } } />
-                    </div>
+                    </div> */ }
                     <div className={ classes.grow } />
                     <div className={ classes.sectionDesktop }>
                         <DesktopMenu />

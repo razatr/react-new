@@ -8,7 +8,7 @@ function ButtonBack(props) {
     const { className } = props
 
     return <NavLink to={ '/restaurants/' }>
-        <IconButton className={ className } aria-haspopup="true" color="inherit">
+        <IconButton edge="start" className={ className } color="inherit" aria-label="open drawer">
             <ArrowBackIosIcon />
         </IconButton>
     </NavLink>
