@@ -64,17 +64,20 @@ export const loadRestaurants = () => ({
     callAPI: 'http://localhost:3001/api/restaurants'
 })
 
-export const loadDishes = () => ({
+export const loadDishes = (restaurantId) => ({
     type: LOAD_DISHES,
-    callAPI: "http://localhost:3001/api/dishes"
+    callAPI: restaurantId? `http://localhost:3001/api/dishes?id=${restaurantId}` : 'http://localhost:3001/api/dishes',
+    payload: {
+        id: restaurantId
+    }
 })
 
 export const loadReviews = () => ({
     type: LOAD_REVIEWS,
-    callAPI: "http://localhost:3001/api/reviews"
+    callAPI: 'http://localhost:3001/api/reviews'
 })
 
 export const loadUsers = () => ({
     type: LOAD_USERS,
-    callAPI: "http://localhost:3001/api/users"
+    callAPI: 'http://localhost:3001/api/users'
 })

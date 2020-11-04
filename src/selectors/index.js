@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect'
+import restaurant from '../components/restaurant'
 
 export const idSelector = (_, ownProps) => ownProps.id
 export const userIdSelector = (_, ownProps) => ownProps.userId
@@ -24,45 +25,37 @@ export const reviewsLoadedSelector = state => state.reviews.get('loaded')
 export const usersLoadedSelector = state => state.users.get('loaded')
 
 
-export const createDishSelector = () => {
-    return createSelector(
-        dishesSelector,
-        idSelector,
-        (dishes, id) => {
-            return dishes.find(dish => dish.id === id)
-        }
-    )
-}
+export const dishSelector = createSelector(
+    dishesSelector,
+    idSelector,
+    (dishes, id) => {
+        return dishes.find(dish => dish.id === id)
+    }
+)
 
-export const createRestaurantSelector = () => {
-    return createSelector(
-        restaurantsSelector,
-        idSelector,
-        (restaurants, id) => {
-            return restaurants.find(dish => dish.id === id)
-        }
-    )
-}
+export const restaurantSelector = createSelector(
+    restaurantsSelector,
+    idSelector,
+    (restaurants, id) => {
+        return restaurants.find(restaurant => restaurant.id === id)
+    }
+)
 
-export const createUserSelector = () => {
-    return createSelector(
-        usersSelector,
-        userIdSelector,
-        (users, id) => {
-            return users.find(user => user.id === id)
-        }
-    )
-}
+export const userSelector = createSelector(
+    usersSelector,
+    userIdSelector,
+    (users, id) => {
+        return users.find(user => user.id === id)
+    }
+)
 
-export const createReviewSelector = () => {
-    return createSelector(
+export const reviewSelector =  createSelector(
         reviewsSelector,
         idSelector,
         (reviews, id) => {
             return reviews.find(review => review.id === id)
         }
     )
-}
 
 export const selectAllDishes = createSelector(dishesSelector,
     (dishes) => {
@@ -91,5 +84,12 @@ export const selectCurrentCart = createSelector(
             })
         }
         return rows
+    }
+)
+
+export const selectDishLoadedInRestaurant = createSelector(
+    restaurantSelector,
+    (restaurant) => {
+        return restaurant.reviewsLoaded
     }
 )

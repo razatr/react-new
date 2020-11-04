@@ -9,13 +9,11 @@ import {
     restaurantsLoadingSelector,
     reviewsLoadingSelector,
     usersLoadingSelector,
-    dishesLoadingSelector,
     restaurantsLoadedSelector,
     reviewsLoadedSelector,
-    usersLoadedSelector,
-    dishesLoadedSelector
+    usersLoadedSelector
 } from './selectors'
-import { loadRestaurants, loadReviews, loadUsers, loadDishes } from './AC'
+import { loadRestaurants, loadReviews, loadUsers } from './AC'
 import { CircularProgress, Grid } from '@material-ui/core'
 import RestaurantPage from './components/routes/restaurantsPage'
 
@@ -25,18 +23,16 @@ function App(props) {
         loadRestaurants,
         loadUsers,
         loadReviews,
-        loadDishes,
         restaurantsLoading,
         reviewsLoading,
         usersLoading,
-        dishesLoading,
         restaurantsLoaded,
         reviewsLoaded,
         usersLoaded,
-        dishesLoaded
+
     } = props
 
-    const loading = restaurantsLoading || reviewsLoading || usersLoading || dishesLoading
+    const loading = restaurantsLoading || reviewsLoading || usersLoading
 
     useEffect(() => {
         if (!usersLoaded && !usersLoading)
@@ -45,9 +41,6 @@ function App(props) {
             loadReviews()
         if (!restaurantsLoading && !restaurantsLoaded) {
             loadRestaurants()
-        }
-        if (!dishesLoading && !dishesLoaded) {
-            loadDishes()
         }
     })
 
@@ -77,14 +70,11 @@ export default connect(state => ({
     restaurantsLoading: restaurantsLoadingSelector(state),
     reviewsLoading: reviewsLoadingSelector(state),
     usersLoading: usersLoadingSelector(state),
-    dishesLoading: dishesLoadingSelector(state),
     restaurantsLoaded: restaurantsLoadedSelector(state),
     reviewsLoaded: reviewsLoadedSelector(state),
     usersLoaded: usersLoadedSelector(state),
-    dishesLoaded: dishesLoadedSelector(state)
 }), {
     loadReviews,
     loadRestaurants,
     loadUsers,
-    loadDishes
 })(App)

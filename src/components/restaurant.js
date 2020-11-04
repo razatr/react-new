@@ -3,7 +3,7 @@ import RestaurantMenu from './restaurant-menu'
 import Reviews from './reviews'
 import { Typography, Grid } from '@material-ui/core'
 import { connect } from 'react-redux'
-import { createRestaurantSelector } from '../selectors'
+import { restaurantSelector } from '../selectors'
 import AddReviewForm from './add-review-form'
 import RestaurantRating from './restaurant-rating'
 import { makeStyles } from '@material-ui/core/styles'
@@ -28,7 +28,7 @@ function Restaurant(props) {
                 <Typography variant="h6">{ name }</Typography>
                 <RestaurantRating reviews={ reviews } />
             </Grid>
-            <RestaurantMenu menu={ menu } />
+            <RestaurantMenu menu={ menu } restaurantId={ id } />
             <Reviews reviews={ reviews } />
             <AddReviewForm restaurantId={ id } />
         </div>
@@ -36,7 +36,6 @@ function Restaurant(props) {
 }
 
 const initMapStateToProps = () => {
-    const restaurantSelector = createRestaurantSelector()
     return (state, ownProps) => restaurantSelector(state, ownProps)
 }
 

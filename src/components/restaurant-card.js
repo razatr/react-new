@@ -9,8 +9,8 @@ const useStyles = makeStyles(theme => ({
         height: theme.spacing(18),
         display: 'flex',
         flexDirection: 'column-reverse',
-        maxWidth: theme.spacing(51),
-        background: 'url(https://www.maggi.ru/data/images/recept/img640x500/recept_2720_58kc.jpg) top/cover',
+        maxWidth: theme.spacing(60),
+        background: '#777777',
     },
     description: {
         display: 'flex',

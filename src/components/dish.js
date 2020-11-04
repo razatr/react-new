@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { increaseCart, decreaseCart } from '../AC'
 import { Typography, Grid, IconButton } from '@material-ui/core'
 import { Add as AddIcon, Remove as RemoveIcon } from '@material-ui/icons'
-import { createDishSelector } from '../selectors'
+import { dishSelector } from '../selectors'
 
 function Dish(props) {
     const { id, amount, increase, decrease, name, price } = props
@@ -26,7 +26,6 @@ function Dish(props) {
 }
 
 const initMapStateToProps = () => {
-    const dishSelector = createDishSelector()
 
     return (state, ownProps) => {
         return {

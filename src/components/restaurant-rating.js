@@ -1,7 +1,7 @@
 import React from 'react'
 import { Rating } from '@material-ui/lab'
 import { connect } from 'react-redux'
-import { createReviewSelector } from '../selectors'
+import { reviewSelector } from '../selectors'
 
 function RestaurantRating(props) {
 
@@ -16,8 +16,6 @@ function RestaurantRating(props) {
 }
 
 const initMapStateToProps = () => {
-    const reviewSelector = createReviewSelector()
-
     return (state, ownProps) => {
         return {
             reviewsRate: ownProps.reviews.map(review => {

@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react'
 import { Typography, TextField, Button } from '@material-ui/core'
 import { Rating } from '@material-ui/lab'
 import { connect } from 'react-redux'
-import { createUserSelector } from '../selectors'
+import { userSelector } from '../selectors'
 import { addReview } from '../AC'
 
 function AddReviewForm(props) {
@@ -32,8 +32,6 @@ function AddReviewForm(props) {
 }
 
 const initMapStateToProps = () => {
-    const userSelector = createUserSelector()
-
     return state => {
         const user = userSelector(state, { userId: state.account })
         return {

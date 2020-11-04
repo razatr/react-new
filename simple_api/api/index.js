@@ -8,7 +8,7 @@ const reply = (res, body, timeout = 0, status = 200) =>
     }, timeout);
 
 router.get("/restaurants", function(req, res, next) {
-    reply(res, mocks.restaurants, 1000);
+    reply(res, mocks.restaurants, 200);
 });
 
 router.get("/dishes", function(req, res, next) {

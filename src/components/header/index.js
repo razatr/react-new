@@ -3,10 +3,8 @@ import { fade, makeStyles } from '@material-ui/core/styles'
 import {
     AppBar,
     Toolbar,
-    Typography,
-    InputBase
+    Typography
 } from '@material-ui/core'
-import { Search as SearchIcon } from '@material-ui/icons'
 import { NavLink, Route } from 'react-router-dom'
 import MobileMenu from './mobile-menu'
 import DesktopMenu from './desktop-menu'
