@@ -39,7 +39,6 @@ export const createRestaurantSelector = () => {
         restaurantsSelector,
         idSelector,
         (restaurants, id) => {
-            console.log(restaurants)
             return restaurants.find(dish => dish.id === id)
         }
     )

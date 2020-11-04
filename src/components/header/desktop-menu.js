@@ -23,7 +23,9 @@ function DesktopMenu(props) {
 
     return (<Fragment>
         <NavLink to="/order-list">
-            <CartBadge />
+            <IconButton color="inherit">
+                <CartBadge />
+            </IconButton>
         </NavLink>
         <IconButton edge="end"
                     aria-label="account of current user"

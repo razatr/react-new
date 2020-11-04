@@ -17,6 +17,7 @@ function AccountList(props) {
         { users.map(user => (
             <MenuItem key={ user.id } onClick={ () => {
                 setCurrentUser(user.id)
+                onClose()
             } }>
                 { user.name }
             </MenuItem>

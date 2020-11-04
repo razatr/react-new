@@ -4,8 +4,17 @@ import CartBadge from '../cart-bage'
 import { AccountCircle, MoreVert as MoreIcon } from '@material-ui/icons'
 import AccountList from './accounts-list'
 import { NavLink } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles(theme => ({
+    icon: {
+        margin: theme.spacing(1)
+    }
+}))
 
 function MobileMenu(props) {
+
+    const classes = useStyles()
 
     const [anchorEl, setAnchorEl] = useState(null)
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
@@ -42,18 +51,13 @@ function MobileMenu(props) {
               open={ isMobileMenuOpen }
               onClose={ handleMobileMenuClose }>
             <NavLink to="/order-list">
-                <MenuItem>
-                    <CartBadge />
+                <MenuItem onClick={ handleMobileMenuClose }>
+                    <CartBadge className={ classes.icon } />
                     <p>Cart Badge</p>
                 </MenuItem>
             </NavLink>
             <MenuItem onClick={ handleProfileMenuOpen }>
-                <IconButton aria-label="account of current user"
-                            aria-controls="primary-search-account-menu"
-                            aria-haspopup="true"
-                            color="inherit">
-                    <AccountCircle />
-                </IconButton>
+                <AccountCircle className={ classes.icon } />
                 <p>Profile</p>
             </MenuItem>
         </Menu>
@@ -68,7 +72,10 @@ function MobileMenu(props) {
             <MoreIcon />
         </IconButton>
         { renderMobileMenu }
-        <AccountList anchorEl={ anchorEl } id={ menuId } open={ isMenuOpen } onClose={ handleMenuClose } />
+        <AccountList anchorEl={ anchorEl }
+                     id={ menuId }
+                     open={ isMenuOpen }
+                     onClose={ handleMenuClose } />
     </Fragment>)
 }
 

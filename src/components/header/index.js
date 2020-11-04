@@ -7,9 +7,10 @@ import {
     InputBase
 } from '@material-ui/core'
 import { Search as SearchIcon } from '@material-ui/icons'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Route } from 'react-router-dom'
 import MobileMenu from './mobile-menu'
 import DesktopMenu from './desktop-menu'
+import ButtonBack from './button-back'
 
 const useStyles = makeStyles(theme => ({
     grow: {
@@ -82,7 +83,11 @@ function HeaderMenu() {
         <div className={ classes.grow }>
             <AppBar position="static">
                 <Toolbar>
-                    {/*<AppMenu className={ classes.menuButton } />*/}
+                    {/*<AppMenu className={ classes.menuButton } />*/ }
+                    <Route path={ '/order-list/' } render={ () => (<ButtonBack className={ classes.menuButton } />) } />
+                    <Route path={ '/restaurants/:id' } render={ ({ match }) => {
+                        return match.params.id ? <ButtonBack className={ classes.menuButton } /> : null
+                    } } />
                     <NavLink to={ '/restaurants' }>
                         <Typography className={ classes.title } variant="h6" noWrap>
                             Rest-Delivery
