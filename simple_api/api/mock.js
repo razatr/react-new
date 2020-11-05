@@ -7,7 +7,7 @@ const normalizedRestaurants = [
             lng: -0.13968944549560547
         },
         image:
-            "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/12065623_177150569292352_3493242754411252126_n.jpg?_nc_cat=108&_nc_ht=scontent-waw1-1.xx&oh=94f9c77559a2f31edf4fd68a89b6dda7&oe=5D6D6D4A",
+            "https://www.gastronom.ru/binfiles/images/20161118/b0a987b6.jpg",
         menu: [
             "d75f762a-eadd-49be-8918-ed0daa8dd024",
             "c3cb8f92-a2ed-4716-92a1-b6ea813e9049",
@@ -26,7 +26,7 @@ const normalizedRestaurants = [
             lng: -0.13999606534701844
         },
         image:
-            "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/14492346_873920782710134_3797018371088115698_n.jpg?_nc_cat=108&_nc_ht=scontent-waw1-1.xx&oh=31de8f2906284981f858f7fdf36b0235&oe=5D6AA774",
+            "https://cdn22.img.ria.ru/images/98976/61/989766135_0:100:2000:1233_600x0_80_0_0_6d6bae20fceb464509076685137302b6.jpg",
         menu: [
             "25402233-0095-49ea-9939-1e67ed89ffb9",
             "90902233-0095-49ea-9939-1e67ed89ffb9"
@@ -44,7 +44,7 @@ const normalizedRestaurants = [
             lat: 51.513614456342495,
             lng: -0.1284961359927072
         },
-        image: "http://fabrique.co.uk/wp-content/uploads/2012/11/our22.png",
+        image: "https://cafe-malina.ru/wp-content/uploads/2018/08/sloba-bulki-kruassany-assorti-khleb-vypechka.jpg",
         menu: [
             "08c9ffa0-d003-4310-9e15-20978743296e",
             "64a4967c-2080-4a99-9074-4655a4569a95",
@@ -60,7 +60,7 @@ const normalizedRestaurants = [
             lng: -0.12409270211070839
         },
         image:
-            "https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-9/602319_106412009502974_1112399097_n.jpg?_nc_cat=110&_nc_ht=scontent-waw1-1.xx&oh=c23931271965e9edd3921d559f7440ba&oe=5D6CC921",
+            "https://primamedia.ru/f/big/1963/1962856.jpg?1cad598eef150c4e2ce5a96095fc4942",
         menu: [
             "6c02c2ce-b868-4191-b4a7-8686429f4bac",
             "99bb6fbb-e53b-4b7e-b9c2-23b63b77385d"

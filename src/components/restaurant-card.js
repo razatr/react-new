@@ -33,7 +33,7 @@ function RestaurantCard(props) {
 
     const classes = useStyles()
 
-    const { name, reviews } = props
+    const { name, reviews, image } = props
 
     const getFillElem = (element) => {
         return element.classList.contains(classes.card) ? element : getFillElem(element.parentElement)
@@ -47,7 +47,11 @@ function RestaurantCard(props) {
         getFillElem(ev.target).lastChild.style.flexGrow = '0'
     }
 
-    return <Paper elevation={ 3 } className={ classes.card } onMouseOver={ onCard } onMouseOut={ leaveCard }>
+    return <Paper elevation={ 3 }
+                  className={ classes.card }
+                  onMouseOver={ onCard }
+                  onMouseOut={ leaveCard }
+                  style={ { background: `url(${ image }) top/cover` } }>
         <div className={ classes.description }>
             <Typography className={ classes.title } variant="h6">{ name }</Typography>
             <RestaurantRating reviews={ reviews } />

@@ -2,7 +2,7 @@ import React, { useEffect, Fragment } from 'react'
 import Dish from './dish'
 import { connect } from 'react-redux'
 import { loadDishes } from '../AC'
-import { dishesLoadedSelector, dishesLoadingSelector, selectDishLoadedInRestaurant } from '../selectors'
+import { dishesLoadingSelector, selectDishLoadedInRestaurant } from '../selectors'
 import { CircularProgress } from '@material-ui/core'
 
 function RestaurantMenu(props) {

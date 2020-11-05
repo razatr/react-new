@@ -36,8 +36,7 @@ const initMapStateToProps = () => {
 }
 
 export default connect(
-    initMapStateToProps
-    ,
+    initMapStateToProps,
     {
         increase: increaseCart,
         decrease: decreaseCart

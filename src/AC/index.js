@@ -66,15 +66,18 @@ export const loadRestaurants = () => ({
 
 export const loadDishes = (restaurantId) => ({
     type: LOAD_DISHES,
-    callAPI: restaurantId? `http://localhost:3001/api/dishes?id=${restaurantId}` : 'http://localhost:3001/api/dishes',
+    callAPI: restaurantId ? `http://localhost:3001/api/dishes?id=${ restaurantId }` : 'http://localhost:3001/api/dishes',
     payload: {
         id: restaurantId
     }
 })
 
-export const loadReviews = () => ({
+export const loadReviews = (restaurantId) => ({
     type: LOAD_REVIEWS,
-    callAPI: 'http://localhost:3001/api/reviews'
+    callAPI: restaurantId ? `http://localhost:3001/api/reviews?id=${ restaurantId }` : 'http://localhost:3001/api/reviews',
+    payload: {
+        id: restaurantId
+    }
 })
 
 export const loadUsers = () => ({

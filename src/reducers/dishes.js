@@ -17,7 +17,7 @@ export default (dishesState = fromJS(initialState), action) => {
         case LOAD_DISHES + SUCCESS:
             return dishesState.set('loading', false)
                 .set('loaded', true)
-                .set('entities', fromJS(action.response))
+                .set('entities', dishesState.get('entities').concat(fromJS(action.response)))
 
         case LOAD_DISHES + FAIL:
             return dishesState.set('loading', false)

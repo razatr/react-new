@@ -4,6 +4,7 @@ import { opener } from '../decorators/opener'
 
 function Reviews(props) {
     const { reviews } = props
+
     return (
         <Fragment>
             { reviews.map(reviewId => (

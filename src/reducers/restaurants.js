@@ -32,7 +32,7 @@ export default (restaurantsState = fromJS(initialState), action) => {
         case LOAD_DISHES + SUCCESS:
             const { id } = action.payload
             const key = restaurantsState.get('entities').findKey((value) => (value.get('id') === id))
-            return restaurantsState.setIn(['entities', key, 'reviewsLoaded'], true)
+            return restaurantsState.setIn(['entities', key, 'dishesLoaded'], true)
 
         case ADD_REVIEW:
             const { restaurantId } = action.payload

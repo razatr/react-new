@@ -28,8 +28,7 @@ function App(props) {
         usersLoading,
         restaurantsLoaded,
         reviewsLoaded,
-        usersLoaded,
-
+        usersLoaded
     } = props
 
     const loading = restaurantsLoading || reviewsLoading || usersLoading

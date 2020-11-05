@@ -29,7 +29,7 @@ function Restaurant(props) {
                 <RestaurantRating reviews={ reviews } />
             </Grid>
             <RestaurantMenu menu={ menu } restaurantId={ id } />
-            <Reviews reviews={ reviews } />
+            <Reviews reviews={ reviews } restaurantId={ id } />
             <AddReviewForm restaurantId={ id } />
         </div>
     )

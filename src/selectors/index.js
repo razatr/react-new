@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect'
-import restaurant from '../components/restaurant'
 
 export const idSelector = (_, ownProps) => ownProps.id
 export const userIdSelector = (_, ownProps) => ownProps.userId
@@ -89,7 +88,5 @@ export const selectCurrentCart = createSelector(
 
 export const selectDishLoadedInRestaurant = createSelector(
     restaurantSelector,
-    (restaurant) => {
-        return restaurant.reviewsLoaded
-    }
+    (restaurant) => restaurant.dishesLoaded
 )
