@@ -17,15 +17,17 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.0.1",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "uuid": "^8.3.1"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"npm run api\"",
+    "start": "concurrently \"react-scripts start\" \"npm run serve\"",
     "api": "node simple_api/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "serve --cors api -l 3001"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,8 +46,10 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "http-proxy-middleware": "^1.0.6",
     "prettier": "1.17.1",
-    "pretty-quick": "^1.10.0"
+    "pretty-quick": "^1.10.0",
+    "serve": "^11.3.2"
   },
   "husky": {
     "hooks": {

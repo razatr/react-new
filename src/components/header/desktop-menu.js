@@ -35,7 +35,7 @@ function DesktopMenu(props) {
                     color="inherit">
             <AccountCircle />
         </IconButton>
-        <AccountList anchorEl={ anchorEl } id={ menuId } open={ isMenuOpen } onClose={ handleMenuClose } />
+
     </Fragment>)
 }
 

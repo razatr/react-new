@@ -90,3 +90,8 @@ export const selectDishLoadedInRestaurant = createSelector(
     restaurantSelector,
     (restaurant) => restaurant.dishesLoaded
 )
+
+export const selectReviewsLoadedInRestaurant = createSelector(
+    restaurantSelector,
+    (restaurant) => restaurant.reviewsLoaded
+)

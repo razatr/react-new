@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-import counterReducer from './counter'
 import cartReducer from './cart'
 import restaurantsReducer from './restaurants'
 import dishesReducer from './dishes'
@@ -8,7 +7,6 @@ import usersReducer from './users'
 import accountReducer from './account'
 
 export default combineReducers({
-    count: counterReducer,
     restaurants: restaurantsReducer,
     cart: cartReducer,
     dishes: dishesReducer,

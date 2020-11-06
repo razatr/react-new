@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import RestaurantMenu from './restaurant-menu'
 import Reviews from './reviews'
 import { Typography, Grid } from '@material-ui/core'
@@ -22,21 +22,22 @@ function Restaurant(props) {
 
     const { name, menu, reviews, id } = props
 
-    return (
+    return (<Fragment>
         <div className={ classes.root }>
             <Grid container justify="space-between">
                 <Typography variant="h6">{ name }</Typography>
                 <RestaurantRating reviews={ reviews } />
             </Grid>
-            <RestaurantMenu menu={ menu } restaurantId={ id } />
+            <RestaurantMenu menu={ menu }/>
             <Reviews reviews={ reviews } restaurantId={ id } />
-            <AddReviewForm restaurantId={ id } />
         </div>
-    )
+    </Fragment>)
 }
 
 const initMapStateToProps = () => {
-    return (state, ownProps) => restaurantSelector(state, ownProps)
+    return (state, ownProps) => ({
+        ...restaurantSelector(state, ownProps)
+    })
 }
 
 export default connect(initMapStateToProps)(Restaurant)

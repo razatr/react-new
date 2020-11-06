@@ -72,10 +72,6 @@ function MobileMenu(props) {
             <MoreIcon />
         </IconButton>
         { renderMobileMenu }
-        <AccountList anchorEl={ anchorEl }
-                     id={ menuId }
-                     open={ isMenuOpen }
-                     onClose={ handleMenuClose } />
     </Fragment>)
 }
 

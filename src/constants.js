@@ -11,7 +11,7 @@ export const ADD_REVIEW = 'ADD_REVIEW'
 export const SET_CURRENT_USER = 'SET_CURRENT_USER'
 
 export const LOAD_RESTAURANTS = 'LOAD_RESTAURANTS'
-export const LOAD_DISHES = 'LOAD_DISHES'
+export const LOAD_DISH = 'LOAD_DISH'
 export const LOAD_REVIEWS = 'LOAD_REVIEWS'
 export const LOAD_USERS = 'LOAD_USERS'
 

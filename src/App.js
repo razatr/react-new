@@ -6,46 +6,31 @@ import OrderList from './components/order-list'
 import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 import {
     restaurantsSelector,
-    restaurantsLoadingSelector,
-    reviewsLoadingSelector,
-    usersLoadingSelector,
-    restaurantsLoadedSelector,
-    reviewsLoadedSelector,
-    usersLoadedSelector
+    restaurantsLoadedSelector, reviewsLoadedSelector,
 } from './selectors'
-import { loadRestaurants, loadReviews, loadUsers } from './AC'
+import { loadRestaurant, loadReviews } from './AC'
 import { CircularProgress, Grid } from '@material-ui/core'
 import RestaurantPage from './components/routes/restaurantsPage'
 
 function App(props) {
 
     const {
-        loadRestaurants,
-        loadUsers,
+        loadRestaurant,
         loadReviews,
-        restaurantsLoading,
-        reviewsLoading,
-        usersLoading,
         restaurantsLoaded,
-        reviewsLoaded,
-        usersLoaded
+        reviewsLoaded
     } = props
 
-    const loading = restaurantsLoading || reviewsLoading || usersLoading
-
     useEffect(() => {
-        if (!usersLoaded && !usersLoading)
-            loadUsers()
-        if (!reviewsLoaded && !reviewsLoading)
+        if (!restaurantsLoaded)
+            loadRestaurant()
+        if (!reviewsLoaded)
             loadReviews()
-        if (!restaurantsLoading && !restaurantsLoaded) {
-            loadRestaurants()
-        }
     })
 
     return (
         <Fragment>
-            { loading ? (
+            { (!restaurantsLoaded || !reviewsLoaded) ? (
                 <Grid container direction="row" justify="center" alignItems="center">
                     <CircularProgress style={ { margin: '30px' } } />
                 </Grid>
@@ -66,14 +51,9 @@ function App(props) {
 
 export default connect(state => ({
     restaurants: restaurantsSelector(state),
-    restaurantsLoading: restaurantsLoadingSelector(state),
-    reviewsLoading: reviewsLoadingSelector(state),
-    usersLoading: usersLoadingSelector(state),
     restaurantsLoaded: restaurantsLoadedSelector(state),
-    reviewsLoaded: reviewsLoadedSelector(state),
-    usersLoaded: usersLoadedSelector(state),
+    reviewsLoaded: reviewsLoadedSelector(state)
 }), {
-    loadReviews,
-    loadRestaurants,
-    loadUsers,
+    loadRestaurant,
+    loadReviews
 })(App)

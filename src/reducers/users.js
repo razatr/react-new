@@ -17,7 +17,7 @@ export default (usersState = fromJS(initialState), action) => {
         case LOAD_USERS + SUCCESS:
             return usersState.set('loading', false)
                 .set('loaded', true)
-                .set('entities', fromJS(action.response))
+                .set('entities', usersState.get('entities').push(fromJS(action.response)))
 
         case LOAD_USERS + FAIL:
             return usersState.set('error', action.error)

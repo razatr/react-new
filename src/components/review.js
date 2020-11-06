@@ -3,13 +3,14 @@ import { Rating } from '@material-ui/lab'
 import { Typography } from '@material-ui/core'
 import { connect } from 'react-redux'
 import { reviewSelector, userSelector } from '../selectors'
+import UserName from './user-name'
 
 function Review(props) {
-    const { user, rating, text } = props
+    const { userId, rating, text } = props
 
     return (
         <div>
-            <Typography variant="h6">{ user }</Typography>
+            <UserName id={ userId } />
             <Rating name="read-only" value={ rating } readOnly precision={ 0.5 } />
             <br />
             <Typography>{ text }</Typography>
@@ -18,14 +19,7 @@ function Review(props) {
 }
 
 const initMapStateToProps = () => {
-    return (state, ownProps) => {
-        const review = reviewSelector(state, ownProps)
-
-        return {
-            ...review,
-            user: userSelector(state, review).name
-        }
-    }
+    return (state, ownProps) => reviewSelector(state, ownProps)
 }
 
 export default connect(initMapStateToProps)(Review)
