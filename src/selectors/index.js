@@ -12,12 +12,6 @@ export const usersSelector = state =>
     state.users.get('entities').toJS()
 export const cartSelector = state => state.cart.toJS()
 
-//loading and loaded selectors
-export const restaurantsLoadingSelector = state => state.restaurants.get('loading')
-export const dishesLoadingSelector = state => state.dishes.get('loading')
-export const reviewsLoadingSelector = state => state.reviews.get('loading')
-export const usersLoadingSelector = state => state.users.get('loading')
-
 export const restaurantsLoadedSelector = state => state.restaurants.get('loaded')
 export const dishesLoadedSelector = state => state.dishes.get('loaded')
 export const reviewsLoadedSelector = state => state.reviews.get('loaded')
@@ -78,6 +72,7 @@ export const selectCurrentCart = createSelector(
             rows.push({
                 id: key,
                 name: totalPrices[key].name,
+                ingredients: totalPrices[key].ingredients,
                 count: cart[key],
                 cost: totalPrices[key].price * cart[key]
             })

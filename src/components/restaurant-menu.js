@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Dish from './dish'
 import { connect } from 'react-redux'
 import { loadDishes } from '../AC'
@@ -8,13 +8,11 @@ function RestaurantMenu(props) {
 
     const { menu } = props
 
-    return <Fragment>
-        <div style={ { width: '100%' } }>
+    return <div>
             { menu.map(dishId => (
                 <Dish key={ dishId } id={ dishId } />
             )) }
-        </div>
-    </Fragment>
+    </div>
 }
 
 export default connect((state) => ({

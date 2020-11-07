@@ -50,7 +50,6 @@ function App(props) {
 }
 
 export default connect(state => ({
-    restaurants: restaurantsSelector(state),
     restaurantsLoaded: restaurantsLoadedSelector(state),
     reviewsLoaded: reviewsLoadedSelector(state)
 }), {

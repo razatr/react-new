@@ -8,20 +8,14 @@ import App from './App'
 import store from './store'
 
 const theme = createMuiTheme({
-    root: {
-        fontFamily: [
-            '-apple-system',
-            'BlinkMacSystemFont',
-            '"Segoe UI"',
-            'Roboto',
-            '"Helvetica Neue"',
-            'Arial',
-            'sans-serif',
-            '"Apple Color Emoji"',
-            '"Segoe UI Emoji"',
-            '"Segoe UI Symbol"',
-        ].join(','),
-    },
+    palette: {
+        primary: {
+            light: '#7986cb',
+            main: '#fff',
+            dark: '#303f9f',
+        },
+
+    }
 })
 
 ReactDOM.render(
