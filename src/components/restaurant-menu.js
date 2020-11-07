@@ -1,29 +1,20 @@
-import React, { useEffect, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import Dish from './dish'
 import { connect } from 'react-redux'
 import { loadDishes } from '../AC'
 import { dishesLoadedSelector } from '../selectors'
-import { CircularProgress } from '@material-ui/core'
 
 function RestaurantMenu(props) {
 
-    const { dishesLoaded, loadDishes, menu } = props
+    const { menu } = props
 
-    useEffect(() => {
-        if (!dishesLoaded) {
-            loadDishes(menu)
-        }
-    })
-
-    return (<Fragment>
-        { !dishesLoaded ? (<CircularProgress style={ { margin: '30px' } } />) :
-            (<div style={ { width: '100%' } }>
-                { props.menu.map(dishId => (
-                    <Dish key={ dishId } id={ dishId } />
-                )) }
-            </div>)
-        }
-    </Fragment>)
+    return <Fragment>
+        <div style={ { width: '100%' } }>
+            { menu.map(dishId => (
+                <Dish key={ dishId } id={ dishId } />
+            )) }
+        </div>
+    </Fragment>
 }
 
 export default connect((state) => ({

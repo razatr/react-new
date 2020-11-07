@@ -90,7 +90,7 @@ export const loadUserSuccess = (data) => {
     })
 }
 
-export const loadRestaurant = (arrId) => (dispatch, getState) => {
+export const loadRestaurant = () => (dispatch, getState) => {
     const state = getState()
 
     if (!state.restaurants.get('loaded') && !state.restaurants.get('loading')) {
@@ -104,7 +104,7 @@ export const loadRestaurant = (arrId) => (dispatch, getState) => {
     }
 }
 
-export const loadReviews = (arrId) => (dispatch, getState) => {
+export const loadReviews = () => (dispatch, getState) => {
     const state = getState()
 
     if (!state.reviews.get('loaded') && !state.reviews.get('loading')) {
@@ -118,35 +118,25 @@ export const loadReviews = (arrId) => (dispatch, getState) => {
     }
 }
 
-export const loadDishes = (arrId) => (dispatch, getState) => {
-    const state = getState()
+export const loadDishes = (id) => (dispatch) => {
 
-    if (!state.dishes.get('loaded') && !state.dishes.get('loading')) {
-        arrId.forEach((id) => {
-            dispatch(loadDishStart(id))
-            const f = async () => {
-                const response = await fetch(`http://localhost:3001/dishes.json`)
-                const data = await response.json()
-                dispatch(loadDishSuccess(data.find((item) => (item.id === id))))
-            }
-            f()
-        })
+    dispatch(loadDishStart())
+    const f = async () => {
+        const response = await fetch(`http://localhost:3001/dishes.json`)
+        const data = await response.json()
+        dispatch(loadDishSuccess(data.find((item) => (item.id === id))))
     }
+    f()
 }
 
-export const loadUsers = (arrId) => (dispatch, getState) => {
-    const state = getState()
+export const loadUsers = (id) => (dispatch) => {
 
-    if (!state.users.get('loaded') && !state.users.get('loading')) {
-        arrId.forEach((id) => {
-            dispatch(loadUserStart(id))
-            const f = async () => {
-                const response = await fetch(`http://localhost:3001/users.json`)
-                const data = await response.json()
-                console.log(data, '---', id)
-                dispatch(loadUserSuccess(data.find((item) => (item.id === id))))
-            }
-            f()
-        })
+    dispatch(loadUserStart())
+    const f = async () => {
+        const response = await fetch(`http://localhost:3001/users.json`)
+        const data = await response.json()
+        dispatch(loadUserSuccess(data.find((user) => (user.id === id))))
     }
+    f()
 }
+

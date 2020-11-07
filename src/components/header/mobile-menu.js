@@ -2,7 +2,6 @@ import React, { useState, Fragment } from 'react'
 import { IconButton, Menu, MenuItem } from '@material-ui/core'
 import CartBadge from '../cart-bage'
 import { AccountCircle, MoreVert as MoreIcon } from '@material-ui/icons'
-import AccountList from './accounts-list'
 import { NavLink } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -12,19 +11,13 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-function MobileMenu(props) {
+function MobileMenu() {
 
     const classes = useStyles()
 
-    const [anchorEl, setAnchorEl] = useState(null)
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
 
-    const isMenuOpen = Boolean(anchorEl)
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
-
-    const handleProfileMenuOpen = event => {
-        setAnchorEl(event.currentTarget)
-    }
 
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null)
@@ -34,13 +27,7 @@ function MobileMenu(props) {
         setMobileMoreAnchorEl(event.currentTarget)
     }
 
-    const handleMenuClose = () => {
-        setAnchorEl(null)
-        handleMobileMenuClose()
-    }
-
     const mobileMenuId = 'primary-search-account-menu-mobile'
-    const menuId = 'primary-search-account-menu'
 
     const renderMobileMenu = (
         <Menu anchorEl={ mobileMoreAnchorEl }
@@ -56,7 +43,7 @@ function MobileMenu(props) {
                     <p>Cart Badge</p>
                 </MenuItem>
             </NavLink>
-            <MenuItem onClick={ handleProfileMenuOpen }>
+            <MenuItem>
                 <AccountCircle className={ classes.icon } />
                 <p>Profile</p>
             </MenuItem>

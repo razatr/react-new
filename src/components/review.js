@@ -2,7 +2,7 @@ import React from 'react'
 import { Rating } from '@material-ui/lab'
 import { Typography } from '@material-ui/core'
 import { connect } from 'react-redux'
-import { reviewSelector, userSelector } from '../selectors'
+import { reviewSelector } from '../selectors'
 import UserName from './user-name'
 
 function Review(props) {

@@ -30,4 +30,4 @@ export default (cartState = fromJS({}), action) => {
         default:
             return cartState
     }
-};
+}

@@ -33,7 +33,7 @@ function AddReviewForm(props) {
 
 const initMapStateToProps = () => {
     return state => {
-        const user = userSelector(state, { userId: state.account })
+        const user = userSelector(state, { id: state.account })
         return {
             username: user.name,
             userId: user.id

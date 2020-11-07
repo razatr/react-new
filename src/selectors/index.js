@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect'
 
 export const idSelector = (_, ownProps) => ownProps.id
-export const userIdSelector = (_, ownProps) => ownProps.userId
+export const userIdSelector = (_, ownProps) => ownProps.id
 export const restaurantsSelector = state =>
     state.restaurants.get('entities').toJS()
 export const dishesSelector = state =>
@@ -48,13 +48,13 @@ export const userSelector = createSelector(
     }
 )
 
-export const reviewSelector =  createSelector(
-        reviewsSelector,
-        idSelector,
-        (reviews, id) => {
-            return reviews.find(review => review.id === id)
-        }
-    )
+export const reviewSelector = createSelector(
+    reviewsSelector,
+    idSelector,
+    (reviews, id) => {
+        return reviews.find(review => review.id === id)
+    }
+)
 
 export const selectAllDishes = createSelector(dishesSelector,
     (dishes) => {
@@ -84,14 +84,4 @@ export const selectCurrentCart = createSelector(
         }
         return rows
     }
-)
-
-export const selectDishLoadedInRestaurant = createSelector(
-    restaurantSelector,
-    (restaurant) => restaurant.dishesLoaded
-)
-
-export const selectReviewsLoadedInRestaurant = createSelector(
-    restaurantSelector,
-    (restaurant) => restaurant.reviewsLoaded
 )

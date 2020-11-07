@@ -28,8 +28,9 @@ function Restaurant(props) {
                 <Typography variant="h6">{ name }</Typography>
                 <RestaurantRating reviews={ reviews } />
             </Grid>
-            <RestaurantMenu menu={ menu }/>
+            <RestaurantMenu menu={ menu } />
             <Reviews reviews={ reviews } restaurantId={ id } />
+            <AddReviewForm restaurantId={ id } />
         </div>
     </Fragment>)
 }

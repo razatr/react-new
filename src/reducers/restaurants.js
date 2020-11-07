@@ -40,4 +40,4 @@ export default (restaurantsState = fromJS(initialState), action) => {
         default:
             return restaurantsState
     }
-};
+}

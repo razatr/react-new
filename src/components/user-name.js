@@ -1,23 +1,20 @@
 import React, { useEffect } from 'react'
 import { Typography } from '@material-ui/core'
 import { connect } from 'react-redux'
-import { usersLoadedSelector, userSelector } from '../selectors'
+import { userSelector } from '../selectors'
 import { loadUsers } from '../AC'
 
 function UserName(props) {
 
-    const { userLoaded, user, loadUsers, id } = props
+    const { user, loadUsers, id } = props
 
     useEffect(() => {
-        console.log('gg')
-        if(!userLoaded) // TODO: Добавить условие проверки существования элемента в коде для всех сущностей
-            loadUsers([id])
+        if (!user)
+            loadUsers(id)
     })
 
-    return !userLoaded ? 'Loading' :(<Typography variant="h6">{ user.name }</Typography>)
+    return user ? (<Typography variant="h6">{ user.name }</Typography>) : 'Loading'
 }
 
-export default connect((state, ownProps) => ({
-    usersLoaded: usersLoadedSelector(state),
-    user: userSelector(state, ownProps)
-}), { loadUsers })(UserName)
+export default connect((state, ownProps) => ({ user: userSelector(state, ownProps) })
+    , { loadUsers })(UserName)
