@@ -16,7 +16,7 @@ function App(props) {
         loadReviews,
         restaurantsLoaded,
         reviewsLoaded
-    } = props
+    } = props //TODO Убрать загрузку данных из App, сделать лоадер
 
     useEffect(() => {
         if (!restaurantsLoaded)

@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
     button: {
+        marginTop: theme.spacing(2),
         [theme.breakpoints.up('sm')]: {
             width: theme.spacing(20),
             alignSelf: 'center'
@@ -25,6 +26,7 @@ function AddReviewForm(props) {
 
     return (
         <Fragment>
+            <Typography variant='h6'> Add review </Typography>
             <Typography>{ username }</Typography>
             <Rating name={ restaurantId } value={ value } onChange={ (event, newValue) => setValue(newValue) } />
             <TextField value={ text }
