@@ -7,22 +7,32 @@ import { increaseCart, decreaseCart, deleteCart } from '../AC'
 
 const useStyles = makeStyles(theme => ({
     root: {
-        margin: `${ theme.spacing(2) }px ${ theme.spacing(3) }px`,
+        margin: `${ theme.spacing(2) }px ${ theme.spacing(3) }px 0 ${ theme.spacing(3) }px`,
         display: 'flex',
         flexDirection: 'column',
-        maxWidth: theme.spacing(123)
+        [theme.breakpoints.up('md')]: {
+            width: '100%'
+        }
+    },
+    cardContent: {
+        paddingBottom: '0'
     },
     actions: {
         display: 'flex',
-        justifyContent: 'space-around'
+        justifyContent: 'center'
     },
-    descriptions: {
+    description: {
         display: 'flex',
         justifyContent: 'space-between'
     },
     title: {
         display: 'flex',
         justifyContent: 'center'
+    },
+    counter: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        width: theme.spacing(30)
     }
 }))
 
@@ -30,29 +40,30 @@ function OrderItem(props) {
 
     const classes = useStyles()
 
-    const { name, cost, count, increase, decrease, id, deleteCart, ingredients } = props
-    console.log(ingredients)
+    const { name, cost, count, increase, decrease, id, deleteCart } = props
 
     return <Card className={ classes.root }>
-        <CardContent>
+        <CardContent className={ classes.cardContent }>
             <div className={ classes.title }>
                 <Typography variant='h6'>{ name }</Typography>
             </div>
-            <div className={ classes.descriptions }>
+            <div className={ classes.description }>
                 <Typography> Count { count }</Typography>
-                <Typography> Total cost { cost }</Typography>
+                <Typography> Cost { cost }</Typography>
             </div>
         </CardContent>
         <CardActions className={ classes.actions }>
-            <IconButton onClick={ () => decrease(id) } size="small">
-                <RemoveIcon />
-            </IconButton>
-            <Button onClick={()=> deleteCart(id)}>
-                Delete
-            </Button>
-            <IconButton onClick={ () => increase(id) } size="small">
-                <AddIcon />
-            </IconButton>
+            <div className={classes.counter}>
+                <IconButton onClick={ () => decrease(id) } size="small">
+                    <RemoveIcon />
+                </IconButton>
+                <Button onClick={ () => deleteCart(id) } size="small" color="secondary">
+                    Delete
+                </Button>
+                <IconButton onClick={ () => increase(id) } size="small">
+                    <AddIcon />
+                </IconButton>
+            </div>
         </CardActions>
     </Card>
 }

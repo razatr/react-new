@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import RestaurantList from '../restaurant-list'
 import Restaurant from '../restaurant'
 
-function RestaurantPage(props) {
+function RestaurantPage() {
     return <Fragment>
         <Route path={ '/restaurants/:id' } render={ ({ match }) => (<Restaurant id={ match.params.id } />) } />
         <Route exact path={ '/restaurants/' } component={ RestaurantList } />

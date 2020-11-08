@@ -1,27 +1,41 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Button } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        marginTop: theme.spacing(3),
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column'
+    },
+    button: {
+        [theme.breakpoints.up('sm')]: {
+            width: theme.spacing(20),
+            alignSelf: 'center'
+        }
+    }
+}))
 
 const opener = OriginalComponent =>
-    class DecoratedComponent extends Component {
-        state = {
-            isOpen: false
+    function (props) {
+
+        const classes = useStyles()
+
+        const [isOpen, setState] = useState(false)
+
+        const onClick = () => {
+            setState(!isOpen)
         }
 
-        onClick = () => {
-            this.setState({ isOpen: !this.state.isOpen })
-        }
-
-        render() {
-            const { isOpen } = this.state
-            return (
-                <React.Fragment>
-                    <Button onClick={ this.onClick }>
-                        { isOpen ? 'Close reviews' : 'Open reviews' }
-                    </Button>
-                    { isOpen ? <OriginalComponent { ...this.props } /> : null }
-                </React.Fragment>
-            )
-        }
+        return (
+            <div className={ classes.root }>
+                <Button onClick={ onClick } className={ classes.button }>
+                    { isOpen ? 'Close reviews' : 'Open reviews' }
+                </Button>
+                { isOpen ? <OriginalComponent { ...props } /> : null }
+            </div>
+        )
     }
 
 export { opener }

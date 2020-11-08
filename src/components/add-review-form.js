@@ -4,10 +4,22 @@ import { Rating } from '@material-ui/lab'
 import { connect } from 'react-redux'
 import { userSelector } from '../selectors'
 import { addReview } from '../AC'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles(theme => ({
+    button: {
+        [theme.breakpoints.up('sm')]: {
+            width: theme.spacing(20),
+            alignSelf: 'center'
+        }
+    }
+}))
 
 function AddReviewForm(props) {
     const [value, setValue] = useState(0)
     const [text, setText] = useState('')
+
+    const classes = useStyles()
 
     const { userId, username, addReview, restaurantId } = props
 
@@ -20,7 +32,7 @@ function AddReviewForm(props) {
                        placeholder="Write what you think of us"
                        multiline
                        onChange={ e => setText(e.target.value) } />
-            <Button onClick={ () => {
+            <Button className={ classes.button } onClick={ () => {
                 setValue(0)
                 setText('')
                 addReview(userId, text, value, restaurantId)

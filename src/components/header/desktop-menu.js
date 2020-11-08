@@ -14,13 +14,15 @@ function DesktopMenu() {
                 <CartBadge />
             </IconButton>
         </NavLink>
-        <IconButton edge="end"
-                    aria-label="account of current user"
-                    aria-controls={ menuId }
-                    aria-haspopup="true"
-                    color="inherit">
-            <AccountCircle />
-        </IconButton>
+        <NavLink to='/user-form'>
+            <IconButton edge="end"
+                        aria-label="account of current user"
+                        aria-controls={ menuId }
+                        aria-haspopup="true"
+                        color="inherit">
+                <AccountCircle />
+            </IconButton>
+        </NavLink>
     </Fragment>)
 }
 

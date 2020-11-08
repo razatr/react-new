@@ -43,10 +43,12 @@ function MobileMenu() {
                     <p>Cart Badge</p>
                 </MenuItem>
             </NavLink>
-            <MenuItem>
-                <AccountCircle className={ classes.icon } />
-                <p>Profile</p>
-            </MenuItem>
+            <NavLink to='/user-form'>
+                <MenuItem>
+                    <AccountCircle className={ classes.icon } />
+                    <p>Profile</p>
+                </MenuItem>
+            </NavLink>
         </Menu>
     )
 

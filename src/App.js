@@ -4,10 +4,7 @@ import UserForm from './components/user-form'
 import Header from './components/header'
 import OrderList from './components/order-list'
 import { BrowserRouter, Route, Redirect } from 'react-router-dom'
-import {
-    restaurantsSelector,
-    restaurantsLoadedSelector, reviewsLoadedSelector,
-} from './selectors'
+import { restaurantsLoadedSelector, reviewsLoadedSelector, } from './selectors'
 import { loadRestaurant, loadReviews } from './AC'
 import { CircularProgress, Grid } from '@material-ui/core'
 import RestaurantPage from './components/routes/restaurantsPage'

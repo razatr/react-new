@@ -5,12 +5,19 @@ import RestaurantRating from './restaurant-rating'
 
 const useStyles = makeStyles(theme => ({
     card: {
-        margin: theme.spacing(3),
+        marginTop: theme.spacing(3),
+        marginRight: theme.spacing(3),
         height: theme.spacing(18),
         display: 'flex',
         flexDirection: 'column-reverse',
-        maxWidth: theme.spacing(60),
         background: '#777777',
+        flexGrow: '1',
+        [theme.breakpoints.up('sm')]: {
+            minWidth: theme.spacing(38)
+        },
+        [theme.breakpoints.up('md')]: {
+            minWidth: theme.spacing(55)
+        }
     },
     description: {
         display: 'flex',

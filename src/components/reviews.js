@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import Review from './review'
 import { opener } from '../decorators/opener'
 
-
 function Reviews(props) {
     const { reviews } = props
 

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import RestaurantMenu from './restaurant-menu'
 import Reviews from './reviews'
 import { Typography, Grid } from '@material-ui/core'
@@ -12,7 +12,19 @@ const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
-        margin: theme.spacing(3)
+        margin: theme.spacing(3),
+        [theme.breakpoints.up('md')]: {
+            width: '100%'
+        }
+    },
+    dynamicWrapper: {
+        boxSizing: 'border-box',
+        [theme.breakpoints.up('md')]: {
+            width: theme.spacing(120),
+            margin: 'auto',
+            display: 'flex',
+            flexWrap: 'wrap'
+        }
     }
 }))
 
@@ -22,17 +34,19 @@ function Restaurant(props) {
 
     const { name, menu, reviews, id } = props
 
-    return (<Fragment>
-        <div className={ classes.root }>
-            <Grid container justify="space-between">
-                <Typography variant="h6">{ name }</Typography>
-                <RestaurantRating reviews={ reviews } />
-            </Grid>
-            <RestaurantMenu menu={ menu } />
-            <Reviews reviews={ reviews } restaurantId={ id } />
-            <AddReviewForm restaurantId={ id } />
+    return (
+        <div className={ classes.dynamicWrapper }>
+            <div className={ classes.root }>
+                <Grid container justify="space-between">
+                    <Typography variant="h6">{ name }</Typography>
+                    <RestaurantRating reviews={ reviews } />
+                </Grid>
+                <RestaurantMenu menu={ menu } />
+                <Reviews reviews={ reviews } restaurantId={ id } />
+                <AddReviewForm restaurantId={ id } />
+            </div>
         </div>
-    </Fragment>)
+    )
 }
 
 const initMapStateToProps = () => {
