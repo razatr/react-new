@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { restaurantsSelector } from '../selectors'
+import { restaurantsLoadedSelector, restaurantsSelector, reviewsLoadedSelector } from '../selectors'
 import RestaurantCard from './restaurant-card'
 import { NavLink } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
+import { loadRestaurant, loadReviews } from '../AC'
+import Loader from './loader'
 
 const useStyles = makeStyles(theme => ({
     dynamicWrapper: {
@@ -29,11 +31,23 @@ const useStyles = makeStyles(theme => ({
 
 function RestaurantList(props) {
 
+    const {
+        loadRestaurant,
+        loadReviews,
+        restaurantsLoaded,
+        reviewsLoaded
+    } = props
+
+    useEffect(() => {
+        loadRestaurant()
+        loadReviews()
+    })
+
     const { restaurants } = props
 
     const classes = useStyles()
 
-    return <div className={ classes.dynamicWrapper }>
+    return (restaurantsLoaded && reviewsLoaded ? <div className={ classes.dynamicWrapper }>
         { (restaurants.map(restaurant => (
                     <NavLink className={ classes.restaurantLink }
                              key={ restaurant.id }
@@ -44,10 +58,16 @@ function RestaurantList(props) {
                 )
             )
         ) }
-    </div>
+    </div> : <Loader />)
+
 
 }
 
 export default connect((state) => ({
-    restaurants: restaurantsSelector(state)
-}))(RestaurantList)
+    restaurants: restaurantsSelector(state),
+    restaurantsLoaded: restaurantsLoadedSelector(state),
+    reviewsLoaded: reviewsLoadedSelector(state)
+}), {
+    loadRestaurant,
+    loadReviews
+})(RestaurantList)

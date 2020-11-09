@@ -6,6 +6,7 @@ import { Add as AddIcon, Remove as RemoveIcon } from '@material-ui/icons'
 import { dishSelector } from '../selectors'
 import { loadDishes } from '../AC'
 import { makeStyles } from '@material-ui/core/styles'
+import Loader from './loader'
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -45,7 +46,7 @@ function Dish(props) {
                     <Typography display='block'>{ dish.price }</Typography>
                 </Grid>
             </CardContent>
-            <CardActions className={classes.cardActions}>
+            <CardActions className={ classes.cardActions }>
                 <div className={ classes.counter }>
                     <IconButton onClick={ () => decrease(id) } size="small">
                         <RemoveIcon />
@@ -57,7 +58,7 @@ function Dish(props) {
                 </div>
             </CardActions>
         </Card>
-        : 'Loading'
+        : <Loader />
 }
 
 const initMapStateToProps = () => {

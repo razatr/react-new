@@ -1,6 +1,7 @@
 import {
     ADD_REVIEW,
     LOAD_RESTAURANTS,
+    LOAD_RESTAURANT,
     START, FAIL, SUCCESS
 } from '../constants'
 import { fromJS } from 'immutable'
@@ -22,6 +23,11 @@ export default (restaurantsState = fromJS(initialState), action) => {
                 .set('entities', fromJS(action.response))
                 .set('loading', false)
                 .set('loaded', true)
+
+        case LOAD_RESTAURANT + SUCCESS:
+            return restaurantsState
+                .set('entities', restaurantsState.get('entities').push(fromJS(action.response)))
+                .set('loading', false)
 
         case LOAD_RESTAURANTS + FAIL:
             return restaurantsState

@@ -8,8 +8,10 @@ export const ADD_REVIEW = 'ADD_REVIEW'
 export const SET_CURRENT_USER = 'SET_CURRENT_USER'
 
 export const LOAD_RESTAURANTS = 'LOAD_RESTAURANTS'
+export const LOAD_RESTAURANT = 'LOAD_RESTAURANT'
 export const LOAD_DISH = 'LOAD_DISH'
 export const LOAD_REVIEWS = 'LOAD_REVIEWS'
+export const LOAD_REVIEW = 'LOAD_REVIEW'
 export const LOAD_USERS = 'LOAD_USERS'
 
 export const START = '_START'

@@ -5,8 +5,10 @@ import {
     REMOVE_FROM_CART,
     SET_CURRENT_USER,
     LOAD_RESTAURANTS,
+    LOAD_RESTAURANT,
     LOAD_DISH,
     LOAD_REVIEWS,
+    LOAD_REVIEW,
     LOAD_USERS,
     SUCCESS, START
 } from '../constants'
@@ -59,12 +61,22 @@ export const loadRestaurantsSuccess = (data) => ({
     response: data
 })
 
+export const loadRestaurantSuccess = (data) => ({
+    type: LOAD_RESTAURANT + SUCCESS,
+    response: data
+})
+
 export const loadReviewsStart = () => ({
     type: LOAD_REVIEWS + START
 })
 
 export const loadReviewsSuccess = (data) => ({
     type: LOAD_REVIEWS + SUCCESS,
+    response: data
+})
+
+export const loadReviewSuccess = (data) => ({
+    type: LOAD_REVIEW + SUCCESS,
     response: data
 })
 
@@ -90,21 +102,26 @@ export const loadUserSuccess = (data) => {
     })
 }
 
-export const loadRestaurant = () => (dispatch, getState) => {
+export const loadRestaurant = (id) => (dispatch, getState) => {
     const state = getState()
 
-    if (!state.restaurants.get('loaded') && !state.restaurants.get('loading')) {
+    if (!state.restaurants.get('loaded') && !state.restaurants.get('loading') ) {
         dispatch(loadRestaurantsStart())
         const f = async () => {
             const response = await fetch(`http://localhost:3001/restaurants.json`)
             const data = await response.json()
-            dispatch(loadRestaurantsSuccess(data))
+            if(id){
+                dispatch(loadRestaurantSuccess(data.find(item => item.id === id)))
+            }
+            else{
+                dispatch(loadRestaurantsSuccess(data))
+            }
         }
         f()
     }
 }
 
-export const loadReviews = () => (dispatch, getState) => {
+export const loadReviews = (arrId) => (dispatch, getState) => {
     const state = getState()
 
     if (!state.reviews.get('loaded') && !state.reviews.get('loading')) {
@@ -112,7 +129,16 @@ export const loadReviews = () => (dispatch, getState) => {
         const f = async () => {
             const response = await fetch(`http://localhost:3001/reviews.json`)
             const data = await response.json()
-            dispatch(loadReviewsSuccess(data))
+            if(arrId){
+                const dataForResponse = []
+                arrId.forEach((id) => {
+                    dataForResponse.push(data.find((item) => item.id === id))
+                })
+                dispatch(loadReviewSuccess(dataForResponse))
+            }
+            else{
+                dispatch(loadReviewsSuccess(data))
+            }
         }
         f()
     }

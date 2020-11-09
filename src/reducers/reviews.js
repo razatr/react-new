@@ -1,4 +1,4 @@
-import { ADD_REVIEW, LOAD_REVIEWS, START, SUCCESS, FAIL } from '../constants'
+import { ADD_REVIEW, LOAD_REVIEWS, LOAD_REVIEW, START, SUCCESS, FAIL } from '../constants'
 import { fromJS } from 'immutable'
 
 const initialState = {
@@ -18,6 +18,10 @@ export default (reviewsState = fromJS(initialState), action) => {
             return reviewsState.set('loading', false)
                 .set('loaded', true)
                 .set('entities', fromJS(action.response))
+
+        case LOAD_REVIEW + SUCCESS:
+            return reviewsState.set('loading', false)
+                .set('entities', reviewsState.get('entities').concat(fromJS(action.response)))
 
         case LOAD_REVIEWS + FAIL:
             return reviewsState.set('error', action.error)

@@ -61,7 +61,7 @@ function RestaurantCard(props) {
                   style={ { background: `url(${ image }) top/cover` } }>
         <div className={ classes.description }>
             <Typography className={ classes.title } variant="h6">{ name }</Typography>
-            <RestaurantRating reviews={ reviews } />
+            <RestaurantRating reviewsId={ reviews } />
         </div>
         <div className={ classes.fill } />
     </Paper>

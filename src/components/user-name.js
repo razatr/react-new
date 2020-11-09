@@ -3,6 +3,7 @@ import { Typography } from '@material-ui/core'
 import { connect } from 'react-redux'
 import { userSelector } from '../selectors'
 import { loadUsers } from '../AC'
+import Loader from './loader'
 
 function UserName(props) {
 
@@ -13,7 +14,7 @@ function UserName(props) {
             loadUsers(id)
     })
 
-    return user ? (<Typography variant="h6">{ user.name }</Typography>) : 'Loading'
+    return user ? (<Typography variant="h6">{ user.name }</Typography>) : <Loader />
 }
 
 export default connect((state, ownProps) => ({ user: userSelector(state, ownProps) })

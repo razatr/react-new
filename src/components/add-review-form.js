@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
             width: theme.spacing(20),
             alignSelf: 'center'
         }
+    },
+    title: {
+        marginTop: theme.spacing(3)
     }
 }))
 
@@ -26,7 +29,7 @@ function AddReviewForm(props) {
 
     return (
         <Fragment>
-            <Typography variant='h6'> Add review </Typography>
+            <Typography variant='h6' className={ classes.title }> Add review </Typography>
             <Typography>{ username }</Typography>
             <Rating name={ restaurantId } value={ value } onChange={ (event, newValue) => setValue(newValue) } />
             <TextField value={ text }

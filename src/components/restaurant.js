@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import RestaurantMenu from './restaurant-menu'
 import Reviews from './reviews'
 import { Typography, Grid } from '@material-ui/core'
@@ -7,6 +7,8 @@ import { restaurantSelector } from '../selectors'
 import AddReviewForm from './add-review-form'
 import RestaurantRating from './restaurant-rating'
 import { makeStyles } from '@material-ui/core/styles'
+import {loadRestaurant} from '../AC'
+import Loader from './loader'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -32,27 +34,34 @@ function Restaurant(props) {
 
     const classes = useStyles()
 
-    const { name, menu, reviews, id } = props
+    const { restaurant, id, loadRestaurant } = props
 
-    return (
+    useEffect(()=>{
+        if(!restaurant)
+            loadRestaurant(id)
+    })
+
+    return (restaurant ?
         <div className={ classes.dynamicWrapper }>
             <div className={ classes.root }>
                 <Grid container justify="space-between">
-                    <Typography variant="h6">{ name }</Typography>
-                    <RestaurantRating reviews={ reviews } />
+                    <Typography variant="h6">{ restaurant.name }</Typography>
+                    <RestaurantRating reviewsId={ restaurant.reviews } />
                 </Grid>
-                <RestaurantMenu menu={ menu } />
-                <Reviews reviews={ reviews } restaurantId={ id } />
+                <RestaurantMenu menu={ restaurant.menu } />
+                <Reviews reviews={ restaurant.reviews } restaurantId={ id } />
                 <AddReviewForm restaurantId={ id } />
             </div>
-        </div>
+        </div> : <Loader />
     )
 }
 
 const initMapStateToProps = () => {
     return (state, ownProps) => ({
-        ...restaurantSelector(state, ownProps)
+        restaurant: restaurantSelector(state, ownProps)
     })
 }
 
-export default connect(initMapStateToProps)(Restaurant)
+export default connect(initMapStateToProps, {
+    loadRestaurant
+})(Restaurant)
