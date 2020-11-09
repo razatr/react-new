@@ -149,7 +149,7 @@ export const loadDishes = (id) => (dispatch) => {
 
     dispatch(loadDishStart())
     const f = async () => {
-        const response = await fetch(`${apiPath}dishes.json`)
+        const response = await fetch(`${ apiPath }dishes.json`)
         const data = await response.json()
         dispatch(loadDishSuccess(data.find((item) => (item.id === id))))
     }

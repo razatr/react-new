@@ -10,7 +10,6 @@ import MobileMenu from './mobile-menu'
 import DesktopMenu from './desktop-menu'
 import ButtonBack from './button-back'
 import AppMenu from './app-menu'
-import {rootPath} from '../../constants'
 
 const useStyles = makeStyles(theme => ({
     grow: {
@@ -56,16 +55,15 @@ function HeaderMenu() {
         <div className={ classes.grow }>
             <AppBar position="static">
                 <Toolbar>
-                    <Route path={ `${rootPath}order-list/` } render={ () => (<ButtonBack className={ classes.menuButton } />) } />
-                    <Route path={ `${rootPath}user-form/` } render={ () => (<ButtonBack className={ classes.menuButton } />) } />
-                    <Route path={ `${rootPath}restaurants/:id` } children={ ({ match }) => {
-                        if (match)
-                            return match.params.id ? <ButtonBack className={ classes.menuButton } /> : null
+                    <Route path={ `/order-list/` } render={ () => (<ButtonBack className={ classes.menuButton } />) } />
+                    <Route path={ `/user-form/` } render={ () => (<ButtonBack className={ classes.menuButton } />) } />
+                    <Route path={ `/restaurants/:id` } children={ ({ match }) => {
+                        return match?.params.id ? <ButtonBack className={ classes.menuButton } /> : null
                     } } />
                     <Route exact
-                           path={ `${rootPath}restaurants/` }
+                           path={ `/restaurants/` }
                            render={ () => (<AppMenu className={ classes.menuButton } />) } />
-                    <NavLink to={ `${rootPath}restaurants` }>
+                    <NavLink to={ `/restaurants` }>
                         <Typography className={ classes.title } variant="h6" noWrap>
                             Rest-Delivery
                         </Typography>

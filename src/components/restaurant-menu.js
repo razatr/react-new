@@ -9,9 +9,9 @@ function RestaurantMenu(props) {
     const { menu } = props
 
     return <div>
-            { menu.map(dishId => (
-                <Dish key={ dishId } id={ dishId } />
-            )) }
+        { menu.map(dishId => (
+            <Dish key={ dishId } id={ dishId } />
+        )) }
     </div>
 }
 

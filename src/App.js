@@ -7,14 +7,14 @@ import RestaurantPage from './components/routes/restaurantsPage'
 import { rootPath } from './constants'
 
 function App() {
-    return <BrowserRouter>
-        <Route exact path={ `${ rootPath }` }>
-            <Redirect to={ `${ rootPath }restaurants` } />
+    return <BrowserRouter basename={ rootPath }>
+        <Route exact path={ '/' }>
+            <Redirect to={ `/restaurants` } />
         </Route>
         <Header />
-        <Route path={ `${ rootPath }restaurants` } component={ RestaurantPage } />
-        <Route path={ `${ rootPath }user-form` } component={ UserForm } />
-        <Route path={ `${ rootPath }order-list` } component={ OrderList } />
+        <Route path={ `/restaurants` } component={ RestaurantPage } />
+        <Route path={ `/user-form` } component={ UserForm } />
+        <Route path={ `/order-list` } component={ OrderList } />
     </BrowserRouter>
 }
 

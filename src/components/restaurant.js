@@ -7,7 +7,7 @@ import { restaurantSelector } from '../selectors'
 import AddReviewForm from './add-review-form'
 import RestaurantRating from './restaurant-rating'
 import { makeStyles } from '@material-ui/core/styles'
-import {loadRestaurant} from '../AC'
+import { loadRestaurant } from '../AC'
 import Loader from './loader'
 
 const useStyles = makeStyles(theme => ({
@@ -36,23 +36,23 @@ function Restaurant(props) {
 
     const { restaurant, id, loadRestaurant } = props
 
-    useEffect(()=>{
-        if(!restaurant)
+    useEffect(() => {
+        if (!restaurant)
             loadRestaurant(id)
     })
 
     return (restaurant ?
-        <div className={ classes.dynamicWrapper }>
-            <div className={ classes.root }>
-                <Grid container justify="space-between">
-                    <Typography variant="h6">{ restaurant.name }</Typography>
-                    <RestaurantRating reviewsId={ restaurant.reviews } />
-                </Grid>
-                <RestaurantMenu menu={ restaurant.menu } />
-                <Reviews reviews={ restaurant.reviews } restaurantId={ id } />
-                <AddReviewForm restaurantId={ id } />
-            </div>
-        </div> : <Loader />
+            <div className={ classes.dynamicWrapper }>
+                <div className={ classes.root }>
+                    <Grid container justify="space-between">
+                        <Typography variant="h6">{ restaurant.name }</Typography>
+                        <RestaurantRating reviewsId={ restaurant.reviews } />
+                    </Grid>
+                    <RestaurantMenu menu={ restaurant.menu } />
+                    <Reviews reviews={ restaurant.reviews } restaurantId={ id } />
+                    <AddReviewForm restaurantId={ id } />
+                </div>
+            </div> : <Loader />
     )
 }
 

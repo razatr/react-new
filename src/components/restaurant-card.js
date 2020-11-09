@@ -59,7 +59,7 @@ function RestaurantCard(props) {
                   className={ classes.card }
                   onMouseOver={ onCard }
                   onMouseOut={ leaveCard }
-                  style={ { background: `url(${apiPath}${ image }) top/cover` } }>
+                  style={ { background: `url(${ apiPath }${ image }) top/cover` } }>
         <div className={ classes.description }>
             <Typography className={ classes.title } variant="h6">{ name }</Typography>
             <RestaurantRating reviewsId={ reviews } />

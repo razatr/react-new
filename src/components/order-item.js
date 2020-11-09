@@ -53,7 +53,7 @@ function OrderItem(props) {
             </div>
         </CardContent>
         <CardActions className={ classes.actions }>
-            <div className={classes.counter}>
+            <div className={ classes.counter }>
                 <IconButton onClick={ () => decrease(id) } size="small">
                     <RemoveIcon />
                 </IconButton>
