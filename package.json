@@ -2,12 +2,14 @@
   "name": "react-new",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://razatr.github.io/react-new/",
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@material-ui/styles": "^4.10.0",
+    "gh-pages": "^3.1.0",
     "immutable": "^4.0.0-rc.12",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -25,7 +27,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "serve --cors api -l 3001"
+    "serve": "serve --cors api -l 3001",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
