@@ -58,21 +58,9 @@ function UserForm() {
 
     return (
         <Grid container className={ classes.dynamicWrapper }>
-            <TextField id="standard-text"
-                       value={ nameState }
-                       label="User Name"
-                       type="text"
-                       onChange={ handleNameChange } />
-            <TextField id="standard-text"
-                       value={ phoneState }
-                       label="Telephone Number"
-                       type="tel"
-                       onChange={ handlePhoneChange } />
-            <TextField id="standard-text"
-                       value={ addressState }
-                       label="Address"
-                       type="text"
-                       onChange={ handleAddressChange } />
+            <TextField value={ nameState } label="User Name" type="text" onChange={ handleNameChange } />
+            <TextField value={ phoneState } label="Telephone Number" type="tel" onChange={ handlePhoneChange } />
+            <TextField value={ addressState } label="Address" type="text" onChange={ handleAddressChange } />
             <Button onClick={ submit } className={ classes.button }>
                 Send order
             </Button>

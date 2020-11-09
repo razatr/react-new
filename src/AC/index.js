@@ -10,7 +10,8 @@ import {
     LOAD_REVIEWS,
     LOAD_REVIEW,
     LOAD_USERS,
-    SUCCESS, START
+    SUCCESS, START,
+    apiPath
 } from '../constants'
 
 export const increaseCart = id => ({
@@ -108,7 +109,7 @@ export const loadRestaurant = (id) => (dispatch, getState) => {
     if (!state.restaurants.get('loaded') && !state.restaurants.get('loading') ) {
         dispatch(loadRestaurantsStart())
         const f = async () => {
-            const response = await fetch(`http://localhost:3001/restaurants.json`)
+            const response = await fetch(`${apiPath}restaurants.json`)
             const data = await response.json()
             if(id){
                 dispatch(loadRestaurantSuccess(data.find(item => item.id === id)))
@@ -127,7 +128,7 @@ export const loadReviews = (arrId) => (dispatch, getState) => {
     if (!state.reviews.get('loaded') && !state.reviews.get('loading')) {
         dispatch(loadReviewsStart())
         const f = async () => {
-            const response = await fetch(`http://localhost:3001/reviews.json`)
+            const response = await fetch(`${apiPath}reviews.json`)
             const data = await response.json()
             if(arrId){
                 const dataForResponse = []
@@ -148,7 +149,7 @@ export const loadDishes = (id) => (dispatch) => {
 
     dispatch(loadDishStart())
     const f = async () => {
-        const response = await fetch(`http://localhost:3001/dishes.json`)
+        const response = await fetch(`${apiPath}dishes.json`)
         const data = await response.json()
         dispatch(loadDishSuccess(data.find((item) => (item.id === id))))
     }
@@ -159,7 +160,7 @@ export const loadUsers = (id) => (dispatch) => {
 
     dispatch(loadUserStart())
     const f = async () => {
-        const response = await fetch(`http://localhost:3001/users.json`)
+        const response = await fetch(`${apiPath}users.json`)
         const data = await response.json()
         dispatch(loadUserSuccess(data.find((user) => (user.id === id))))
     }

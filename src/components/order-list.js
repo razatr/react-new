@@ -4,6 +4,7 @@ import { deleteCart } from '../AC'
 import { selectCurrentCart } from '../selectors'
 import OrderItem from './order-item'
 import { makeStyles } from '@material-ui/core/styles'
+import { Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     dynamicWrapper: {
@@ -14,6 +15,10 @@ const useStyles = makeStyles(theme => ({
             display: 'flex',
             flexWrap: 'wrap'
         }
+    },
+    text: {
+        marginTop: theme.spacing(2),
+        marginLeft: theme.spacing(3)
     }
 }))
 
@@ -25,6 +30,8 @@ function OrderList(props) {
 
     return <div className={ classes.dynamicWrapper }>
         { rows.map((item) => <OrderItem key={ item.id } { ...item } />) }
+        { rows[0] ? <Typography className={ classes.text } variant='h6'> Total
+            cost: { rows.reduce((sum, item) => sum + item.cost, 0) } </Typography> : null }
     </div>
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { Paper, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import RestaurantRating from './restaurant-rating'
+import { apiPath } from '../constants'
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -58,7 +59,7 @@ function RestaurantCard(props) {
                   className={ classes.card }
                   onMouseOver={ onCard }
                   onMouseOut={ leaveCard }
-                  style={ { background: `url(${ image }) top/cover` } }>
+                  style={ { background: `url(${apiPath}${ image }) top/cover` } }>
         <div className={ classes.description }>
             <Typography className={ classes.title } variant="h6">{ name }</Typography>
             <RestaurantRating reviewsId={ reviews } />

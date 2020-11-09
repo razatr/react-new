@@ -56,6 +56,7 @@ function HeaderMenu() {
             <AppBar position="static">
                 <Toolbar>
                     <Route path={ '/order-list/' } render={ () => (<ButtonBack className={ classes.menuButton } />) } />
+                    <Route path={ '/user-form/' } render={ () => (<ButtonBack className={ classes.menuButton } />) } />
                     <Route path={ '/restaurants/:id' } children={ ({ match }) => {
                         if (match)
                             return match.params.id ? <ButtonBack className={ classes.menuButton } /> : null
