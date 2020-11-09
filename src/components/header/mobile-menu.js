@@ -4,6 +4,7 @@ import CartBadge from '../cart-bage'
 import { AccountCircle, MoreVert as MoreIcon } from '@material-ui/icons'
 import { NavLink } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
+import { rootPath } from '../../constants'
 
 const useStyles = makeStyles(theme => ({
     icon: {
@@ -37,13 +38,13 @@ function MobileMenu() {
               transformOrigin={ { vertical: 'top', horizontal: 'right' } }
               open={ isMobileMenuOpen }
               onClose={ handleMobileMenuClose }>
-            <NavLink to="/order-list">
+            <NavLink to={ `${ rootPath }order-list` }>
                 <MenuItem onClick={ handleMobileMenuClose }>
                     <CartBadge className={ classes.icon } />
                     <p>Cart Badge</p>
                 </MenuItem>
             </NavLink>
-            <NavLink to='/user-form'>
+            <NavLink to={ `${ rootPath }user-form` }>
                 <MenuItem>
                     <AccountCircle className={ classes.icon } />
                     <p>Profile</p>

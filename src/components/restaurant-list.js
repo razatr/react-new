@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import { loadRestaurant, loadReviews } from '../AC'
 import Loader from './loader'
+import { rootPath } from '../constants'
 
 const useStyles = makeStyles(theme => ({
     dynamicWrapper: {
@@ -51,7 +52,7 @@ function RestaurantList(props) {
         { (restaurants.map(restaurant => (
                     <NavLink className={ classes.restaurantLink }
                              key={ restaurant.id }
-                             to={ '/restaurants/' + restaurant.id }>
+                             to={ `${ rootPath }restaurants/` + restaurant.id }>
                         <RestaurantCard key={ restaurant.id }
                                         { ...restaurant } />
                     </NavLink>

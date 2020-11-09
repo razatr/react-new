@@ -3,18 +3,18 @@ import { NavLink } from 'react-router-dom'
 import CartBadge from '../cart-bage'
 import { IconButton } from '@material-ui/core'
 import { AccountCircle } from '@material-ui/icons'
-
+import { rootPath } from '../../constants'
 
 function DesktopMenu() {
     const menuId = 'primary-search-account-menu'
 
     return (<Fragment>
-        <NavLink to="/order-list">
+        <NavLink to={ `${ rootPath }order-list` }>
             <IconButton color="inherit">
                 <CartBadge />
             </IconButton>
         </NavLink>
-        <NavLink to='/user-form'>
+        <NavLink to={`${rootPath}user-form`}>
             <IconButton edge="end"
                         aria-label="account of current user"
                         aria-controls={ menuId }

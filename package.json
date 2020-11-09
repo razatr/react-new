@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://razatr.github.io/react-new/",
-  "proxy": "http://localhost:3001/",
+  "proxy": "/react-new/",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
