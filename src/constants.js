@@ -18,5 +18,5 @@ export const START = '_START'
 export const SUCCESS = '_SUCCESS'
 export const FAIL = '_FAIL'
 
-export const apiPath = '/react-new/'
+export const apiPath = '/react-new/api/'
 export const rootPath = '/react-new/'
