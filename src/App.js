@@ -4,7 +4,7 @@ import Header from './components/header'
 import OrderList from './components/order-list'
 import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 import RestaurantPage from './components/routes/restaurantsPage'
-import { rootPath } from './constants'
+import { rootPath } from './config'
 
 function App() {
     return <BrowserRouter basename={ rootPath }>

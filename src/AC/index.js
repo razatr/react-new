@@ -10,9 +10,9 @@ import {
     LOAD_REVIEWS,
     LOAD_REVIEW,
     LOAD_USERS,
-    SUCCESS, START,
-    apiPath
+    SUCCESS, START
 } from '../constants'
+import { apiPath } from '../config'
 
 export const increaseCart = id => ({
     type: ADD_TO_CART,
@@ -106,15 +106,15 @@ export const loadUserSuccess = (data) => {
 export const loadRestaurant = (id) => (dispatch, getState) => {
     const state = getState()
 
-    if (!state.restaurants.get('loaded') && !state.restaurants.get('loading') ) {
+    if (!state.restaurants.get('loaded') && !state.restaurants.get('loading')) {
         dispatch(loadRestaurantsStart())
         const f = async () => {
-            const response = await fetch(`${apiPath}restaurants.json`)
+            const response = await fetch(`${ apiPath }restaurants.json`)
             const data = await response.json()
-            if(id){
+            if (id) {
                 dispatch(loadRestaurantSuccess(data.find(item => item.id === id)))
             }
-            else{
+            else {
                 dispatch(loadRestaurantsSuccess(data))
             }
         }
@@ -128,16 +128,16 @@ export const loadReviews = (arrId) => (dispatch, getState) => {
     if (!state.reviews.get('loaded') && !state.reviews.get('loading')) {
         dispatch(loadReviewsStart())
         const f = async () => {
-            const response = await fetch(`${apiPath}reviews.json`)
+            const response = await fetch(`${ apiPath }reviews.json`)
             const data = await response.json()
-            if(arrId){
+            if (arrId) {
                 const dataForResponse = []
                 arrId.forEach((id) => {
                     dataForResponse.push(data.find((item) => item.id === id))
                 })
                 dispatch(loadReviewSuccess(dataForResponse))
             }
-            else{
+            else {
                 dispatch(loadReviewsSuccess(data))
             }
         }
@@ -160,7 +160,7 @@ export const loadUsers = (id) => (dispatch) => {
 
     dispatch(loadUserStart())
     const f = async () => {
-        const response = await fetch(`${apiPath}users.json`)
+        const response = await fetch(`${ apiPath }users.json`)
         const data = await response.json()
         dispatch(loadUserSuccess(data.find((user) => (user.id === id))))
     }
