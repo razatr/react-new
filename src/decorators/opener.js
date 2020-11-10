@@ -7,14 +7,14 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(3),
         display: 'flex',
         justifyContent: 'center',
-        flexDirection: 'column',
+        flexDirection: 'column'
     },
     button: {
         [theme.breakpoints.up('sm')]: {
             width: theme.spacing(20),
-            alignSelf: 'center',
-        },
-    },
+            alignSelf: 'center'
+        }
+    }
 }))
 
 const opener = (OriginalComponent) => function (props) {

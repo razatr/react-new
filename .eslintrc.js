@@ -1,20 +1,20 @@
 module.exports = {
     env: {
         browser: true,
-        es2021: true,
+        es2021: true
     },
     extends: [
-        'plugin:react/recommended',
+        'plugin:react/recommended'
     ],
     parserOptions: {
         ecmaFeatures: {
-            jsx: true,
+            jsx: true
         },
         ecmaVersion: 12,
-        sourceType: 'module',
+        sourceType: 'module'
     },
     plugins: [
-        'react',
+        'react'
     ],
     rules: {
         'react/jsx-filename-extension': [ 1, { extensions: [ '.js', '.jsx' ] } ],
@@ -26,6 +26,8 @@ module.exports = {
         'object-curly-spacing': [ 2, 'always' ],
         'array-bracket-spacing': [ 2, 'always' ],
         'react/prop-types': 0,
-        'react/no-children-prop': 0
-    },
+        'react/no-children-prop': 0,
+        'comma-dangle': 2,
+        'react/jsx-curly-spacing': [ 2 , { 'when': 'always' } ]
+    }
 }

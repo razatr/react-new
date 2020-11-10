@@ -16,25 +16,25 @@ export const usersLoadedSelector = (state) => state.users.get('loaded')
 export const dishSelector = createSelector(
     dishesSelector,
     idSelector,
-    (dishes, id) => dishes.find((dish) => dish.id === id),
+    (dishes, id) => dishes.find((dish) => dish.id === id)
 )
 
 export const restaurantSelector = createSelector(
     restaurantsSelector,
     idSelector,
-    (restaurants, id) => restaurants.find((restaurant) => restaurant.id === id),
+    (restaurants, id) => restaurants.find((restaurant) => restaurant.id === id)
 )
 
 export const userSelector = createSelector(
     usersSelector,
     userIdSelector,
-    (users, id) => users.find((user) => user.id === id),
+    (users, id) => users.find((user) => user.id === id)
 )
 
 export const reviewSelector = createSelector(
     reviewsSelector,
     idSelector,
-    (reviews, id) => reviews.find((review) => review.id === id),
+    (reviews, id) => reviews.find((review) => review.id === id)
 )
 
 export const selectAllDishes = createSelector(dishesSelector,
@@ -44,7 +44,7 @@ export const selectAllDishes = createSelector(dishesSelector,
             res[dish.id] = ({
                 name: dish.name,
                 price: dish.price,
-                ingredients: dish.ingredients,
+                ingredients: dish.ingredients
             })
             return null
         })
@@ -61,9 +61,9 @@ export const selectCurrentCart = createSelector(
                 name: totalPrices[key].name,
                 ingredients: totalPrices[key].ingredients,
                 count: cart[key],
-                cost: totalPrices[key].price * cart[key],
+                cost: totalPrices[key].price * cart[key]
             })
         }
         return rows
-    },
+    }
 )

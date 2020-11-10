@@ -14,27 +14,27 @@ const useStyles = makeStyles((theme) => ({
         background: '#777777',
         flexGrow: '1',
         [theme.breakpoints.up('sm')]: {
-            minWidth: theme.spacing(38),
+            minWidth: theme.spacing(38)
         },
         [theme.breakpoints.up('md')]: {
-            minWidth: theme.spacing(55),
-        },
+            minWidth: theme.spacing(55)
+        }
     },
     description: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-around',
         background: 'rgba(50, 50, 50, 0.4)',
-        borderRadius: `0 0 ${theme.spacing(1) / 2}px ${theme.spacing(1) / 2}px`,
+        borderRadius: `0 0 ${ theme.spacing(1) / 2 }px ${ theme.spacing(1) / 2 }px`
     },
     fill: {
-        borderRadius: `${theme.spacing(1) / 2}px ${theme.spacing(1) / 2}px 0 0`,
+        borderRadius: `${ theme.spacing(1) / 2 }px ${ theme.spacing(1) / 2 }px 0 0`,
         transition: 'flex-grow 200ms ease-in',
-        background: 'linear-gradient(rgba(50, 50, 50, 0), rgba(50, 50, 50, 0.4))',
+        background: 'linear-gradient(rgba(50, 50, 50, 0), rgba(50, 50, 50, 0.4))'
     },
     title: {
-        color: 'white',
-    },
+        color: 'white'
+    }
 }))
 
 function RestaurantCard(props) {
@@ -53,18 +53,16 @@ function RestaurantCard(props) {
     }
 
     return (
-        <Paper
-            elevation={3}
-            className={classes.card}
-            onMouseOver={onCard}
-            onMouseOut={leaveCard}
-            style={{ background: `url(${apiPath}img/${image}) top/cover` }}
-        >
-            <div className={classes.description}>
-                <Typography className={classes.title} variant="h6">{ name }</Typography>
-                <RestaurantRating reviewsId={reviews} />
+        <Paper elevation={ 3 }
+            className={ classes.card }
+            onMouseOver={ onCard }
+            onMouseOut={ leaveCard }
+            style={ { background: `url(${ apiPath }img/${ image }) top/cover` } }>
+            <div className={ classes.description }>
+                <Typography className={ classes.title } variant="h6">{ name }</Typography>
+                <RestaurantRating reviewsId={ reviews } />
             </div>
-            <div className={classes.fill} />
+            <div className={ classes.fill } />
         </Paper>
     )
 }

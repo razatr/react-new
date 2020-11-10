@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable'
 import {
-    LOAD_USERS, START, SUCCESS, FAIL,
+    LOAD_USERS, START, SUCCESS, FAIL
 } from '../constants'
 
 const initialState = {
@@ -9,8 +9,8 @@ const initialState = {
     error: null,
     entities: [ {
         id: 'd30a96e7-e97c-4cb5-920e-391d6c19d020',
-        name: 'Guest',
-    } ],
+        name: 'Guest'
+    } ]
 }
 
 export default (usersState = fromJS(initialState), action) => {

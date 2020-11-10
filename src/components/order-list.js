@@ -13,13 +13,13 @@ const useStyles = makeStyles((theme) => ({
             width: theme.spacing(120),
             margin: 'auto',
             display: 'flex',
-            flexWrap: 'wrap',
-        },
+            flexWrap: 'wrap'
+        }
     },
     text: {
         marginTop: theme.spacing(2),
-        marginLeft: theme.spacing(3),
-    },
+        marginLeft: theme.spacing(3)
+    }
 }))
 
 function OrderList(props) {
@@ -28,13 +28,10 @@ function OrderList(props) {
     const { cart: rows } = props
 
     return (
-        <div className={classes.dynamicWrapper}>
-            { rows.map((item) => <OrderItem key={item.id} {...item} />) }
+        <div className={ classes.dynamicWrapper }>
+            { rows.map((item) => <OrderItem key={ item.id } { ...item } />) }
             { rows[0] ? (
-                <Typography className={classes.text} variant="h6">
-                    {' '}
-          Total
-          cost:
+                <Typography className={ classes.text } variant="h6"> Total cost:
                     { rows.reduce((sum, item) => sum + item.cost, 0) }
                 </Typography>
             ) : null }
@@ -44,9 +41,9 @@ function OrderList(props) {
 
 export default connect(
     (state) => ({
-        cart: selectCurrentCart(state),
+        cart: selectCurrentCart(state)
     }),
     {
-        deleteCart,
-    },
+        deleteCart
+    }
 )(OrderList)

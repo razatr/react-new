@@ -1,13 +1,13 @@
 import { fromJS } from 'immutable'
 import {
-    ADD_REVIEW, LOAD_REVIEWS, LOAD_REVIEW, START, SUCCESS, FAIL,
+    ADD_REVIEW, LOAD_REVIEWS, LOAD_REVIEW, START, SUCCESS, FAIL
 } from '../constants'
 
 const initialState = {
     loading: false,
     loaded: false,
     error: null,
-    entities: [],
+    entities: []
 }
 
 export default (reviewsState = fromJS(initialState), action) => {
@@ -37,7 +37,7 @@ export default (reviewsState = fromJS(initialState), action) => {
                 id: randomId,
                 userId,
                 text,
-                rating,
+                rating
             })))
 
     default:

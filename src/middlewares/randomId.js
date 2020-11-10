@@ -4,9 +4,10 @@ export default (store) => (next) => (action) => {
     if (action.generateId) {
         next({
             ...action,
-            randomId: uuidv4(),
+            randomId: uuidv4()
         })
-    } else if (!action.randomId) {
+    }
+    else if (!action.randomId) {
         next(action)
     }
 }

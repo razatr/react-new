@@ -8,7 +8,7 @@ function AppMenu(props) {
 
     return (
         <NavLink to="/restaurants">
-            <IconButton edge="start" className={className} color="inherit" aria-label="open drawer">
+            <IconButton edge="start" className={ className } color="inherit" aria-label="open drawer">
                 <MenuIcon />
             </IconButton>
         </NavLink>

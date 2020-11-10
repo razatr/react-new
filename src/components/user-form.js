@@ -10,22 +10,22 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
             width: '100%',
             display: 'flex',
-            flexWrap: 'wrap',
+            flexWrap: 'wrap'
         },
         [theme.breakpoints.up('md')]: {
             width: theme.spacing(120),
             margin: 'auto',
             display: 'flex',
-            flexWrap: 'wrap',
-        },
+            flexWrap: 'wrap'
+        }
     },
     button: {
         marginTop: theme.spacing(2),
         [theme.breakpoints.up('sm')]: {
             width: theme.spacing(20),
-            alignSelf: 'center',
-        },
-    },
+            alignSelf: 'center'
+        }
+    }
 }))
 
 function UserForm() {
@@ -52,16 +52,16 @@ function UserForm() {
         setNameState('')
         setPhoneState('')
         setAddressState('')
-        console.log(`${nameState}, ${phoneState}, ${addressState}`)
+        console.log(`${ nameState }, ${ phoneState }, ${ addressState }`)
     }
 
     return (
-        <Grid container className={classes.dynamicWrapper}>
-            <TextField value={nameState} label="User Name" type="text" onChange={handleNameChange} />
-            <TextField value={phoneState} label="Telephone Number" type="tel" onChange={handlePhoneChange} />
-            <TextField value={addressState} label="Address" type="text" onChange={handleAddressChange} />
-            <Button onClick={submit} className={classes.button}>
-        Send order
+        <Grid container className={ classes.dynamicWrapper }>
+            <TextField value={ nameState } label="User Name" type="text" onChange={ handleNameChange } />
+            <TextField value={ phoneState } label="Telephone Number" type="tel" onChange={ handlePhoneChange } />
+            <TextField value={ addressState } label="Address" type="text" onChange={ handleAddressChange } />
+            <Button onClick={ submit } className={ classes.button }>
+                Send order
             </Button>
         </Grid>
     )

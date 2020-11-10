@@ -14,19 +14,19 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
             width: '100%',
             display: 'flex',
-            flexWrap: 'wrap',
+            flexWrap: 'wrap'
         },
         [theme.breakpoints.up('md')]: {
             width: theme.spacing(120),
             margin: 'auto',
             display: 'flex',
-            flexWrap: 'wrap',
-        },
+            flexWrap: 'wrap'
+        }
     },
     restaurantLink: {
         display: 'block',
-        flexGrow: '1',
-    },
+        flexGrow: '1'
+    }
 }))
 
 function RestaurantList(props) {
@@ -34,7 +34,7 @@ function RestaurantList(props) {
         loadRestaurant,
         loadReviews,
         restaurantsLoaded,
-        reviewsLoaded,
+        reviewsLoaded
     } = props
 
     useEffect(() => {
@@ -47,17 +47,13 @@ function RestaurantList(props) {
     const classes = useStyles()
 
     return (restaurantsLoaded && reviewsLoaded ? (
-        <div className={classes.dynamicWrapper}>
+        <div className={ classes.dynamicWrapper }>
             { (restaurants.map((restaurant) => (
-                <NavLink
-                    className={classes.restaurantLink}
-                    key={restaurant.id}
-                    to={`/restaurants/${restaurant.id}`}
-                >
-                    <RestaurantCard
-                        key={restaurant.id}
-                        {...restaurant}
-                    />
+                <NavLink className={ classes.restaurantLink }
+                    key={ restaurant.id }
+                    to={ `/restaurants/${ restaurant.id }` }>
+                    <RestaurantCard key={ restaurant.id }
+                        { ...restaurant } />
                 </NavLink>
             ))
             ) }
@@ -68,8 +64,8 @@ function RestaurantList(props) {
 export default connect((state) => ({
     restaurants: restaurantsSelector(state),
     restaurantsLoaded: restaurantsLoadedSelector(state),
-    reviewsLoaded: reviewsLoadedSelector(state),
+    reviewsLoaded: reviewsLoadedSelector(state)
 }), {
     loadRestaurant,
-    loadReviews,
+    loadReviews
 })(RestaurantList)

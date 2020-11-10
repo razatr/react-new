@@ -12,5 +12,5 @@ export default combineReducers({
     dishes: dishesReducer,
     reviews: reviewsReducer,
     users: usersReducer,
-    account: accountReducer,
+    account: accountReducer
 })

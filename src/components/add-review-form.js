@@ -11,12 +11,12 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(2),
         [theme.breakpoints.up('sm')]: {
             width: theme.spacing(20),
-            alignSelf: 'center',
-        },
+            alignSelf: 'center'
+        }
     },
     title: {
-        marginTop: theme.spacing(3),
-    },
+        marginTop: theme.spacing(3)
+    }
 }))
 
 function AddReviewForm(props) {
@@ -29,24 +29,19 @@ function AddReviewForm(props) {
 
     return (
         <>
-            <Typography variant="h6" className={classes.title}> Add review </Typography>
+            <Typography variant="h6" className={ classes.title }> Add review </Typography>
             <Typography>{ username }</Typography>
-            <Rating name={restaurantId} value={value} onChange={(event, newValue) => setValue(newValue)} />
-            <TextField
-                value={text}
+            <Rating name={ restaurantId } value={ value } onChange={ (event, newValue) => setValue(newValue) } />
+            <TextField value={ text }
                 label="Review"
                 placeholder="Write what you think of us"
                 multiline
-                onChange={(e) => setText(e.target.value)}
-            />
-            <Button
-                className={classes.button}
-                onClick={() => {
-                    setValue(0)
-                    setText('')
-                    addReview(userId, text, value, restaurantId)
-                }}
-            >
+                onChange={ (e) => setText(e.target.value) } />
+            <Button className={ classes.button } onClick={ () => {
+                setValue(0)
+                setText('')
+                addReview(userId, text, value, restaurantId)
+            } }>
                 <Typography>Submit</Typography>
             </Button>
         </>
@@ -57,7 +52,7 @@ const initMapStateToProps = () => (state) => {
     const user = userSelector(state, { id: state.account })
     return {
         username: user.name,
-        userId: user.id,
+        userId: user.id
     }
 }
 

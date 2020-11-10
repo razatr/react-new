@@ -6,8 +6,8 @@ import Restaurant from '../restaurant'
 function RestaurantPage() {
     return (
         <>
-            <Route path="/restaurants/:id" render={({ match }) => (<Restaurant id={match.params.id} />)} />
-            <Route exact path="/restaurants/" component={RestaurantList} />
+            <Route path="/restaurants/:id" render={ ({ match }) => (<Restaurant id={ match.params.id } />) } />
+            <Route exact path="/restaurants/" component={ RestaurantList } />
         </>
     )
 }

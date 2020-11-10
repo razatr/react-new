@@ -3,14 +3,14 @@ import {
     ADD_REVIEW,
     LOAD_RESTAURANTS,
     LOAD_RESTAURANT,
-    START, FAIL, SUCCESS,
+    START, FAIL, SUCCESS
 } from '../constants'
 
 const initialState = {
     loading: false,
     loaded: false,
     error: null,
-    entities: [],
+    entities: []
 }
 
 export default (restaurantsState = fromJS(initialState), action) => {

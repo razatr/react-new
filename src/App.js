@@ -8,14 +8,14 @@ import { rootPath } from './config'
 
 function App() {
     return (
-        <BrowserRouter basename={rootPath}>
+        <BrowserRouter basename={ rootPath }>
             <Route exact path="/">
                 <Redirect to="/restaurants" />
             </Route>
             <Header />
-            <Route path="/restaurants" component={RestaurantPage} />
-            <Route path="/user-form" component={UserForm} />
-            <Route path="/order-list" component={OrderList} />
+            <Route path="/restaurants" component={ RestaurantPage } />
+            <Route path="/user-form" component={ UserForm } />
+            <Route path="/order-list" component={ OrderList } />
         </BrowserRouter>
     )
 }

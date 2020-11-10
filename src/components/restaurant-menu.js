@@ -10,12 +10,12 @@ function RestaurantMenu(props) {
     return (
         <div>
             { menu.map((dishId) => (
-                <Dish key={dishId} id={dishId} />
+                <Dish key={ dishId } id={ dishId } />
             )) }
         </div>
     )
 }
 
 export default connect((state) => ({
-    dishesLoaded: dishesLoadedSelector(state),
+    dishesLoaded: dishesLoadedSelector(state)
 }), { loadDishes })(RestaurantMenu)

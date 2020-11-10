@@ -1,13 +1,13 @@
 import { fromJS } from 'immutable'
 import {
-    LOAD_DISH, START, SUCCESS, FAIL,
+    LOAD_DISH, START, SUCCESS, FAIL
 } from '../constants'
 
 const initialState = {
     loading: false,
     loaded: false,
     error: null,
-    entities: [],
+    entities: []
 }
 
 export default (dishesState = fromJS(initialState), action) => {

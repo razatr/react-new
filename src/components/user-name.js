@@ -9,7 +9,9 @@ function UserName(props) {
     const { user, loadUsers, id } = props
 
     useEffect(() => {
-        if (!user) { loadUsers(id) }
+        if (!user) {
+            loadUsers(id)
+        }
     })
 
     return user ? (<Typography variant="h6">{ user.name }</Typography>) : <Loader />

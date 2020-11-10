@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         margin: theme.spacing(3),
         [theme.breakpoints.up('md')]: {
-            width: '100%',
-        },
+            width: '100%'
+        }
     },
     dynamicWrapper: {
         boxSizing: 'border-box',
@@ -25,9 +25,9 @@ const useStyles = makeStyles((theme) => ({
             width: theme.spacing(120),
             margin: 'auto',
             display: 'flex',
-            flexWrap: 'wrap',
-        },
-    },
+            flexWrap: 'wrap'
+        }
+    }
 }))
 
 function Restaurant(props) {
@@ -36,20 +36,22 @@ function Restaurant(props) {
     const { restaurant, id, loadRestaurant } = props
 
     useEffect(() => {
-        if (!restaurant) { loadRestaurant(id) }
+        if (!restaurant) {
+            loadRestaurant(id)
+        }
     })
 
     return (restaurant
         ? (
-            <div className={classes.dynamicWrapper}>
-                <div className={classes.root}>
+            <div className={ classes.dynamicWrapper }>
+                <div className={ classes.root }>
                     <Grid container justify="space-between">
                         <Typography variant="h6">{ restaurant.name }</Typography>
-                        <RestaurantRating reviewsId={restaurant.reviews} />
+                        <RestaurantRating reviewsId={ restaurant.reviews } />
                     </Grid>
-                    <RestaurantMenu menu={restaurant.menu} />
-                    <Reviews reviews={restaurant.reviews} restaurantId={id} />
-                    <AddReviewForm restaurantId={id} />
+                    <RestaurantMenu menu={ restaurant.menu } />
+                    <Reviews reviews={ restaurant.reviews } restaurantId={ id } />
+                    <AddReviewForm restaurantId={ id } />
                 </div>
             </div>
         ) : <Loader />
@@ -57,9 +59,9 @@ function Restaurant(props) {
 }
 
 const initMapStateToProps = () => (state, ownProps) => ({
-    restaurant: restaurantSelector(state, ownProps),
+    restaurant: restaurantSelector(state, ownProps)
 })
 
 export default connect(initMapStateToProps, {
-    loadRestaurant,
+    loadRestaurant
 })(Restaurant)

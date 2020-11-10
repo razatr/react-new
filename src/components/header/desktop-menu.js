@@ -15,13 +15,11 @@ function DesktopMenu() {
                 </IconButton>
             </NavLink>
             <NavLink to="/user-form">
-                <IconButton
-                    edge="end"
+                <IconButton edge="end"
                     aria-label="account of current user"
-                    aria-controls={menuId}
+                    aria-controls={ menuId }
                     aria-haspopup="true"
-                    color="inherit"
-                >
+                    color="inherit">
                     <AccountCircle />
                 </IconButton>
             </NavLink>

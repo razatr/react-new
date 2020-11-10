@@ -7,15 +7,15 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(3),
         display: 'flex',
         width: '100%',
-        justifyContent: 'center',
-    },
+        justifyContent: 'center'
+    }
 }))
 
 function Loader() {
     const classes = useStyles()
 
     return (
-        <div className={classes.root}>
+        <div className={ classes.root }>
             <CircularProgress color="secondary" />
         </div>
     )
