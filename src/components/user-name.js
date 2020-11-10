@@ -6,16 +6,14 @@ import { loadUsers } from '../AC'
 import Loader from './loader'
 
 function UserName(props) {
-
     const { user, loadUsers, id } = props
 
     useEffect(() => {
-        if (!user)
-            loadUsers(id)
+        if (!user) { loadUsers(id) }
     })
 
     return user ? (<Typography variant="h6">{ user.name }</Typography>) : <Loader />
 }
 
-export default connect((state, ownProps) => ({ user: userSelector(state, ownProps) })
-    , { loadUsers })(UserName)
+export default connect((state, ownProps) => ({ user: userSelector(state, ownProps) }),
+    { loadUsers })(UserName)

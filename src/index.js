@@ -15,14 +15,14 @@ const theme = createMuiTheme({
             dark: '#303f9f',
         },
 
-    }
+    },
 })
 
 ReactDOM.render(
-    <ThemeProvider theme={ theme }>
-        <Provider store={ store }>
+    <ThemeProvider theme={theme}>
+        <Provider store={store}>
             <App />
         </Provider>
     </ThemeProvider>,
-    document.getElementById('root')
+    document.getElementById('root'),
 )

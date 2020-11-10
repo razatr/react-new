@@ -21,8 +21,8 @@ jobs:
     - run: yarn --frozen-lockfile
     - run: yarn build
       env:
-        REACT_APP_API_PATH: '/react-new/api/'
-        REACT_APP_ROOT_PATH: '/react-new/'
+        REACT_APP_API_PATH: '/${{ github.repository }}/api/'
+        REACT_APP_ROOT_PATH: '/${{ github.repository }}/'
     - run: mv api build
     - name: Deploy to GitHub Pages
       uses: crazy-max/ghaction-github-pages@v2

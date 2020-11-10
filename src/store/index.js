@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import logger from '../middlewares/logger'
 import randomId from '../middlewares/randomId'
-import thunk from 'redux-thunk'
 import reducer from '../reducers'
 
 const enhancer = applyMiddleware(randomId, thunk, logger)

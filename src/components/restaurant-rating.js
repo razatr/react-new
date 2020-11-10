@@ -6,22 +6,19 @@ import { loadReviews } from '../AC'
 import Loader from './loader'
 
 function RestaurantRating(props) {
-
     const { reviewsId, loadReviews, reviews } = props
 
     const isLoaded = (arr) => {
         let k = true
 
         arr.forEach((item) => {
-            if (!item)
-                k = false
+            if (!item) { k = false }
         })
         return k
     }
 
     useEffect(() => {
-        if (!isLoaded(reviews))
-            loadReviews(reviewsId)
+        if (!isLoaded(reviews)) { loadReviews(reviewsId) }
     })
 
     const avgRate = () => {
@@ -31,17 +28,11 @@ function RestaurantRating(props) {
         return Math.round(2 * avg) / 2
     }
 
-    return isLoaded(reviews) ? <Rating name="read-only" value={ avgRate() } readOnly precision={ 0.5 } /> : <Loader />
+    return isLoaded(reviews) ? <Rating name="read-only" value={avgRate()} readOnly precision={0.5} /> : <Loader />
 }
 
-const initMapStateToProps = () => {
-    return (state, ownProps) => {
-        return {
-            reviews: ownProps.reviewsId.map(review => {
-                return reviewSelector(state, { id: review })
-            })
-        }
-    }
-}
+const initMapStateToProps = () => (state, ownProps) => ({
+    reviews: ownProps.reviewsId.map((review) => reviewSelector(state, { id: review })),
+})
 
 export default connect(initMapStateToProps, { loadReviews })(RestaurantRating)
