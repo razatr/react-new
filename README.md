@@ -16,4 +16,6 @@ React-приложение, написанное с использовением
 #### Внесение изменений на GitHub:
 1) Установить apiPath = "/react-new/api/"
 2) Установить rootPath = "/react-new/"
-3) После выполнения `git push` автоматически запустится GitHub Actions, который внесет изменения на gh-pages. 
+3) После выполнения `git push` автоматически запустится GitHub Actions, который внесет изменения на gh-pages.
+
+`apiPath` и `rootPath` находятся в `src/constants.js`
