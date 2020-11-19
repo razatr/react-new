@@ -39,17 +39,14 @@ const useStyles = makeStyles((theme) => ({
 
 function RestaurantCard(props) {
     const classes = useStyles()
-
     const { name, reviews, image } = props
 
-    const getFillElem = (element) => (element.classList.contains(classes.card) ? element : getFillElem(element.parentElement))
-
     const onCard = (ev) => {
-        getFillElem(ev.target).lastChild.style.flexGrow = '1'
+        ev.target.closest(`.${classes.card}`).lastChild.style.flexGrow = '1'
     }
 
     const leaveCard = (ev) => {
-        getFillElem(ev.target).lastChild.style.flexGrow = '0'
+        ev.target.closest(`.${classes.card}`).lastChild.style.flexGrow = '0'
     }
 
     return (
