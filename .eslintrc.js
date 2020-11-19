@@ -29,6 +29,8 @@ module.exports = {
         'react/prop-types': 0,
         'react/no-children-prop': 0,
         'comma-dangle': 2,
-        'react/jsx-curly-spacing': [ 2 , { 'when': 'always' } ]
+        'react/jsx-curly-spacing': [ 2 , { 'when': 'always' } ],
+        'no-unused-vars': 0,
+        'no-undef': 0
     }
 }

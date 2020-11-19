@@ -27,18 +27,16 @@ export default (reviewsState = fromJS(initialState), action) => {
     case LOAD_REVIEWS + FAIL:
         return reviewsState.set('error', action.error)
 
-    case ADD_REVIEW:
+    case ADD_REVIEW: {
         const { userId, text, rating } = action.payload
         const { randomId } = action
 
         return reviewsState.set('entities', reviewsState
             .get('entities')
             .push(fromJS({
-                id: randomId,
-                userId,
-                text,
-                rating
+                id: randomId, userId, text, rating
             })))
+    }
 
     default:
         return reviewsState
