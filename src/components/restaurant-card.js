@@ -52,7 +52,7 @@ function RestaurantCard(props) {
     return (
         <Paper elevation={ 3 }
             className={ classes.card }
-            onMouseOver={ onCard }
+            onMouseOver={ onCard } //TODO: Сделать через mouseEnter/mouseLeave
             onMouseOut={ leaveCard }
             style={ { background: `url(${ apiPath }img/${ image }) top/cover` } }>
             <div className={ classes.description }>
