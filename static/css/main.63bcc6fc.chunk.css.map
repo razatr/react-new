@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,EACC,QACD,CAEA,MACC,eACD,CAEA,EACC,aAAc,CACd,oBACD","file":"main.63bcc6fc.chunk.css","sourcesContent":["* {\n\tmargin: 0;\n}\n\n#root {\n\tmin-width: 400px;\n}\n\na {\n\tcolor: inherit;\n\ttext-decoration: none;\n}\n"]}
